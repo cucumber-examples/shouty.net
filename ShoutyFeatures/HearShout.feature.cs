@@ -70,7 +70,7 @@ namespace ShoutyFeatures
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("What should it do?", ((string[])(null)));
 #line 5
- this.ScenarioSetup(scenarioInfo);
+  this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
