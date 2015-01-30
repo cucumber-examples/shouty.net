@@ -8,10 +8,16 @@ namespace ShoutyFeatures
   [Binding]
   public class ShoutSteps
   {
+    private Person lucy;
+    private Person sean;
+
     [Given(@"Lucy is (.*) metres from Sean")]
-    public void GivenLucyIsMetresFromSean(int p0)
+    public void GivenLucyIsMetresFromSean(int distance)
     {
-      ScenarioContext.Current.Pending();
+      lucy = new Person();
+      sean = new Person();
+
+      lucy.MoveTo(distance);
     }
 
     [When(@"Sean shouts ""(.*)""")]
