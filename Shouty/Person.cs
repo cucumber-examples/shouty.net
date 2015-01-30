@@ -10,5 +10,9 @@ namespace Shouty
     public void MoveTo(int distance)
     {
     }
+
+    public void Shout(string message)
+    {
+    }
   }
 }

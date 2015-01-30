@@ -21,9 +21,9 @@ namespace ShoutyFeatures
     }
 
     [When(@"Sean shouts ""(.*)""")]
-    public void WhenSeanShouts(string p0)
+    public void WhenSeanShouts(string message)
     {
-      ScenarioContext.Current.Pending();
+      sean.Shout(message);
     }
 
     [Then(@"Lucy hears Sean's message")]
