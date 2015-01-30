@@ -1,5 +1,6 @@
 ﻿Feature: Hear shout
-
-  A Description goes here
 	
-  Scenario: What should it do?
+  Scenario: Listener is within range
+    Given Lucy is 15 metres from Sean
+    When Sean shouts "Free bagels!"
+    Then Lucy hears Sean's message
