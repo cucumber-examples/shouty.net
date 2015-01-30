@@ -80,6 +80,23 @@ namespace ShoutyFeatures
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Listener hears a different message")]
+        public virtual void ListenerHearsADifferentMessage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Listener hears a different message", ((string[])(null)));
+#line 8
+  this.ScenarioSetup(scenarioInfo);
+#line 9
+    testRunner.Given("Lucy is 15 metres from Sean", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 10
+    testRunner.When("Sean shouts \"Free coffee!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+    testRunner.Then("Lucy hears Sean\'s message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
