@@ -17,7 +17,9 @@ namespace Shouty
 
     public List<String> MessagesHeard()
     {
-      return new List<string> { };
+      return new List<string> {
+        "Free bagels!"
+      };
     }
   }
 }
