@@ -10,6 +10,7 @@ namespace ShoutyFeatures
   {
     private Person lucy;
     private Person sean;
+    private string lastMessage;
 
     [Given(@"Lucy is (.*) metres from Sean")]
     public void GivenLucyIsMetresFromSean(int distance)
@@ -23,13 +24,14 @@ namespace ShoutyFeatures
     [When(@"Sean shouts ""(.*)""")]
     public void WhenSeanShouts(string message)
     {
+      lastMessage = message;
       sean.Shout(message);
     }
 
     [Then(@"Lucy hears Sean's message")]
     public void ThenLucyHearsSeanSMessage()
     {
-      ScenarioContext.Current.Pending();
+      Assert.That(lucy.messagesHeard(), Contains.Item(lastMessage));
     }
   }
 }
