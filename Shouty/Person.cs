@@ -15,7 +15,7 @@ namespace Shouty
     {
     }
 
-    public List<String> messagesHeard()
+    public List<String> MessagesHeard()
     {
       return new List<string> { };
     }

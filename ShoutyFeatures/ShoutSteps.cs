@@ -31,7 +31,7 @@ namespace ShoutyFeatures
     [Then(@"Lucy hears Sean's message")]
     public void ThenLucyHearsSeanSMessage()
     {
-      Assert.That(lucy.messagesHeard(), Contains.Item(lastMessage));
+      Assert.That(lucy.MessagesHeard(), Contains.Item(lastMessage));
     }
   }
 }
