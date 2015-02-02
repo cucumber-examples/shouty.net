@@ -28,8 +28,8 @@ namespace ShoutyFeatures
       lucy.MoveTo(distance);
     }
 
-    [Given(@"a person named Lucy")]
-    public void GivenAPersonNamedLucy()
+    [Given(@"a person named (Lucy)")]
+    public void GivenAPersonNamed(string name)
     {
       lucy = new Person(network);
     }
