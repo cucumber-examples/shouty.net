@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Shouty
 {
-  public class Person
+  public class Person : ISubscribe
   {
     public void MoveTo(int distance)
     {
@@ -20,6 +20,11 @@ namespace Shouty
       return new List<string> {
         "Free bagels!"
       };
+    }
+
+    public void Hear(string message)
+    {
+      throw new NotImplementedException();
     }
   }
 }

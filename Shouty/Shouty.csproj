@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Network.cs" />
+    <Compile Include="ISubscribe.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Shouty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
