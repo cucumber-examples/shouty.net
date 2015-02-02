@@ -9,14 +9,18 @@ namespace ShoutyTests
   public class NetworkTest
   {
     [Test]
-    public void BroadcastMessageToListeners()
+    public void BroadcastMessageToListenersWithinRange()
     {
-      InMemoryNetwork network = new InMemoryNetwork();
+      var range = 100;
+      var network = new InMemoryNetwork(range);
       var message = "Free bagels";
       var mock = new Mock<ISubscribe>();
+      var seanLocation = 0;
+
+      mock.Setup(person => person.Location).Returns(100);
       
       network.Subscribe(mock.Object);
-      network.Broadcast(message);
+      network.Broadcast(message, seanLocation);
 
       mock.Verify(person => person.Hear(message));
     }

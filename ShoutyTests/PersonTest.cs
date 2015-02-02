@@ -25,7 +25,7 @@ namespace ShoutyTests
       var sean = new Person(mock.Object);
 
       sean.Shout(message);
-      mock.Verify(network => network.Broadcast(message));
+      mock.Verify(network => network.Broadcast(message, 0));
     }
 
     [Test]

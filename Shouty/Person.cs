@@ -18,7 +18,7 @@ namespace Shouty
 
     public void Shout(string message)
     {
-      network.Broadcast(message);
+      network.Broadcast(message, 0);
     }
 
     public List<String> MessagesHeard()
@@ -29,6 +29,12 @@ namespace Shouty
     public void Hear(string message)
     {
       messagesHeard.Add(message);
+    }
+
+
+    public int Location
+    {
+      get { throw new NotImplementedException(); }
     }
   }
 }

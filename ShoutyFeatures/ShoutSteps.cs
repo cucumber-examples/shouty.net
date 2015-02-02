@@ -14,12 +14,6 @@ namespace ShoutyFeatures
     private Dictionary<string, Person> people;
 
     [Before]
-    public void InitializeNetwork()
-    {
-      network = new InMemoryNetwork();
-    }
-
-    [Before]
     public void InitializePeople()
     {
       people = new Dictionary<string, Person> { };
@@ -28,7 +22,7 @@ namespace ShoutyFeatures
     [Given(@"the range is (\d+)")]
     public void GivenTheRangeIs(int range)
     {
-
+      network = new InMemoryNetwork(range);
     }
 
     [Given(@"a person named (\w+) at location (\d+)")]
