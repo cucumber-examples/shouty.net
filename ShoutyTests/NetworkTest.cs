@@ -11,7 +11,7 @@ namespace ShoutyTests
     [Test]
     public void BroadcastMessageToListeners()
     {
-      Network network = new Network();
+      InMemoryNetwork network = new InMemoryNetwork();
       var message = "Free bagels";
       var mock = new Mock<ISubscribe>();
       

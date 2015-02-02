@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shouty
 {
-  public class Network : INetwork
+  public class InMemoryNetwork : INetwork
   {
     private List<ISubscribe> subscribers = new List<ISubscribe> {};
 

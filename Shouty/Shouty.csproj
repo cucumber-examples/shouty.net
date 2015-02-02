@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="INetwork.cs" />
-    <Compile Include="Network.cs" />
+    <Compile Include="InMemoryNetwork.cs" />
     <Compile Include="ISubscribe.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Shouty.cs" />
