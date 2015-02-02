@@ -11,8 +11,9 @@
   Todo:
     - only shout to people within a certain distance
 
-  Scenario: Listener is within range
-    Given Lucy is 15 metres from Sean
+  Scenario: Listener hears a message
+    Given a person named Lucy
+    And a person named Sean
     When Sean shouts "Free bagels!"
     Then Lucy hears Sean's message
 
@@ -20,3 +21,7 @@
     Given Lucy is 15 metres from Sean
     When Sean shouts "Free coffee!"
     Then Lucy hears Sean's message
+
+  Scenario: Listener is within range
+
+  Scenario: Listener is out of range
