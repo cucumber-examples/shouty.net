@@ -7,6 +7,14 @@ namespace Shouty
 {
   public class Person : ISubscribe
   {
+    private INetwork network;
+
+    public Person(INetwork network)
+    {
+      this.network = network;
+      network.Subscribe(this);
+    }
+
     public void MoveTo(int distance)
     {
     }

@@ -15,8 +15,9 @@ namespace ShoutyFeatures
     [Given(@"Lucy is (.*) metres from Sean")]
     public void GivenLucyIsMetresFromSean(int distance)
     {
-      lucy = new Person();
-      sean = new Person();
+      var network = new Network();
+      lucy = new Person(network);
+      sean = new Person(network);
 
       lucy.MoveTo(distance);
     }

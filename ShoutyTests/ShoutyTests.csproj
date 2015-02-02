@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="NetworkTest.cs" />
+    <Compile Include="PersonTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
