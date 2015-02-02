@@ -9,16 +9,18 @@ namespace Shouty
   {
     private INetwork network;
     private List<String> messagesHeard = new List<string> { };
+    private int location;
 
-    public Person(INetwork network)
+    public Person(INetwork network, int location)
     {
       this.network = network;
+      this.location = location;
       network.Subscribe(this);
     }
 
     public void Shout(string message)
     {
-      network.Broadcast(message, 0);
+      network.Broadcast(message, Location);
     }
 
     public List<String> MessagesHeard()
@@ -34,7 +36,7 @@ namespace Shouty
 
     public int Location
     {
-      get { throw new NotImplementedException(); }
+      get { return location; }
     }
   }
 }
