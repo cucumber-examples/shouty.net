@@ -11,11 +11,17 @@ namespace ShoutyFeatures
     private Person lucy;
     private Person sean;
     private string lastMessage;
+    private INetwork network;
+
+    [Before]
+    public void InitializeNetwork()
+    {
+      network = new InMemoryNetwork();
+    }
 
     [Given(@"Lucy is (\d+) metres from Sean")]
     public void GivenLucyIsMetresFromSean(int distance)
     {
-      var network = new InMemoryNetwork();
       lucy = new Person(network);
       sean = new Person(network);
 
@@ -25,13 +31,13 @@ namespace ShoutyFeatures
     [Given(@"a person named Lucy")]
     public void GivenAPersonNamedLucy()
     {
-      ScenarioContext.Current.Pending();
+      lucy = new Person(network);
     }
 
     [Given(@"a person named Sean")]
     public void GivenAPersonNamedSean()
     {
-      ScenarioContext.Current.Pending();
+      sean = new Person(network);
     }
 
     [When(@"Sean shouts ""([^""]*)""")]
