@@ -8,21 +8,42 @@ namespace ShoutyTests
   [TestFixture]
   public class NetworkTest
   {
+    int range = 100;
+    INetwork network;
+    string message = "Free bagels";
+
+    [SetUp]
+    public void Init()
+    {
+      network = new InMemoryNetwork(range);
+    }
+
     [Test]
     public void BroadcastMessageToListenersWithinRange()
-    {
-      var range = 100;
-      var network = new InMemoryNetwork(range);
-      var message = "Free bagels";
+    {    
       var mock = new Mock<ISubscribe>();
       var seanLocation = 0;
 
-      mock.Setup(person => person.Location).Returns(100);
+      mock.Setup(lucy => lucy.Location).Returns(100);
       
       network.Subscribe(mock.Object);
       network.Broadcast(message, seanLocation);
 
-      mock.Verify(person => person.Hear(message));
+      mock.Verify(lucy => lucy.Hear(message));
+    }
+
+    [Test]
+    public void DoesNotBroadcastMessageToListenerOutOfRange()
+    {
+      var mock = new Mock<ISubscribe>();
+      var seanLocation = 0;
+
+      mock.Setup(laura => laura.Location).Returns(101);
+
+      network.Subscribe(mock.Object);
+      network.Broadcast(message, seanLocation);
+
+      mock.Verify(laura => laura.Hear(message), Times.Never());
     }
   }
 }
