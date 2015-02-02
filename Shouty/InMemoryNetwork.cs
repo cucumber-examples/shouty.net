@@ -21,9 +21,15 @@ namespace Shouty
       subscribers.Add(subscriber);
     }
 
-    public void Broadcast(string message, int seanLocation)
+    public void Broadcast(string message, int location)
     {
-      subscribers.ForEach(subscriber => subscriber.Hear(message));
+      subscribers.FindAll(subscriber => IsInRange(location, subscriber.Location)).
+        ForEach(subscriber => subscriber.Hear(message));
+    }
+
+    private bool IsInRange(int broadcastLocation, int listenerLocation)
+    {
+      return listenerLocation - broadcastLocation <= range;
     }
   }
 }
