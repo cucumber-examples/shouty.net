@@ -45,5 +45,19 @@ namespace ShoutyTests
 
       mock.Verify(laura => laura.Hear(message), Times.Never());
     }
+
+    [Test]
+    public void DoesNotBroadcastMessageToListenerOutOfRangeWithNegativeDistance()
+    {
+      var mock = new Mock<ISubscribe>();
+      var sallyLocation = 101;
+
+      mock.Setup(lionel => lionel.Location).Returns(0);
+
+      network.Subscribe(mock.Object);
+      network.Broadcast(message, sallyLocation);
+
+      mock.Verify(lionel => lionel.Hear(message), Times.Never());
+    }
   }
 }

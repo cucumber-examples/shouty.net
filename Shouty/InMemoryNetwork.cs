@@ -29,7 +29,7 @@ namespace Shouty
 
     private bool IsInRange(int broadcastLocation, int listenerLocation)
     {
-      return listenerLocation - broadcastLocation <= range;
+      return Math.Abs(listenerLocation - broadcastLocation) <= range;
     }
   }
 }
