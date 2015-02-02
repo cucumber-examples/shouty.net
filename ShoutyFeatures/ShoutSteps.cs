@@ -12,7 +12,7 @@ namespace ShoutyFeatures
     private Person sean;
     private string lastMessage;
 
-    [Given(@"Lucy is (.*) metres from Sean")]
+    [Given(@"Lucy is (\d+) metres from Sean")]
     public void GivenLucyIsMetresFromSean(int distance)
     {
       var network = new InMemoryNetwork();
@@ -22,7 +22,7 @@ namespace ShoutyFeatures
       lucy.MoveTo(distance);
     }
 
-    [When(@"Sean shouts ""(.*)""")]
+    [When(@"Sean shouts ""([^""]*)""")]
     public void WhenSeanShouts(string message)
     {
       lastMessage = message;
