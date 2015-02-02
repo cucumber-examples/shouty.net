@@ -28,7 +28,7 @@ namespace ShoutyFeatures
     [Given(@"a person named (\w+) at location (\d+)")]
     public void GivenAPersonNamedAtLocation(string name, int location)
     {
-      people.Add(name, new Person(network));
+      people.Add(name, new Person(network, location));
     }
 
     [When(@"Sean shouts ""([^""]*)""")]
