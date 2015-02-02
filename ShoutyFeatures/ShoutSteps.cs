@@ -27,8 +27,14 @@ namespace ShoutyFeatures
       people = new Dictionary<string, Person> { };
     }
 
-    [Given(@"a person named (\w+)")]
-    public void GivenAPersonNamed(string name)
+    [Given(@"the range is (\d+)")]
+    public void GivenTheRangeIs(int range)
+    {
+
+    }
+
+    [Given(@"a person named (\w+) at location (\d+)")]
+    public void GivenAPersonNamedAtLocation(string name, int location)
     {
       people.Add(name, new Person(network));
     }
@@ -44,6 +50,12 @@ namespace ShoutyFeatures
     public void ThenLucyHearsSeanSMessage()
     {
       Assert.That(people["Lucy"].MessagesHeard(), Contains.Item(lastMessage));
+    }
+
+    [Then(@"Larry does not hear Sean's message")]
+    public void ThenLarryDoesNotHearSeanSMessage()
+    {
+      Assert.That(people["Larry"].MessagesHeard(), Has.No.Member(lastMessage));
     }
   }
 }
