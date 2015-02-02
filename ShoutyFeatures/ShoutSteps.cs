@@ -9,8 +9,6 @@ namespace ShoutyFeatures
   [Binding]
   public class ShoutSteps
   {
-    private Person lucy;
-    private Person sean;
     private string lastMessage;
     private INetwork network;
     private Dictionary<string, Person> people;
