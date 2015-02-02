@@ -2,6 +2,7 @@
 using TechTalk.SpecFlow;
 using NUnit.Framework;
 using Shouty;
+using System.Collections.Generic;
 
 namespace ShoutyFeatures
 {
@@ -12,6 +13,7 @@ namespace ShoutyFeatures
     private Person sean;
     private string lastMessage;
     private INetwork network;
+    private Dictionary<string, Person> people;
 
     [Before]
     public void InitializeNetwork()
@@ -19,38 +21,29 @@ namespace ShoutyFeatures
       network = new InMemoryNetwork();
     }
 
-    [Given(@"Lucy is (\d+) metres from Sean")]
-    public void GivenLucyIsMetresFromSean(int distance)
+    [Before]
+    public void InitializePeople()
     {
-      lucy = new Person(network);
-      sean = new Person(network);
-
-      lucy.MoveTo(distance);
+      people = new Dictionary<string, Person> { };
     }
 
-    [Given(@"a person named (Lucy)")]
+    [Given(@"a person named (\w+)")]
     public void GivenAPersonNamed(string name)
     {
-      lucy = new Person(network);
-    }
-
-    [Given(@"a person named Sean")]
-    public void GivenAPersonNamedSean()
-    {
-      sean = new Person(network);
+      people.Add(name, new Person(network));
     }
 
     [When(@"Sean shouts ""([^""]*)""")]
     public void WhenSeanShouts(string message)
     {
       lastMessage = message;
-      sean.Shout(message);
+      people["Sean"].Shout(message);
     }
 
     [Then(@"Lucy hears Sean's message")]
     public void ThenLucyHearsSeanSMessage()
     {
-      Assert.That(lucy.MessagesHeard(), Contains.Item(lastMessage));
+      Assert.That(people["Lucy"].MessagesHeard(), Contains.Item(lastMessage));
     }
   }
 }
