@@ -22,6 +22,18 @@ namespace ShoutyFeatures
       lucy.MoveTo(distance);
     }
 
+    [Given(@"a person named Lucy")]
+    public void GivenAPersonNamedLucy()
+    {
+      ScenarioContext.Current.Pending();
+    }
+
+    [Given(@"a person named Sean")]
+    public void GivenAPersonNamedSean()
+    {
+      ScenarioContext.Current.Pending();
+    }
+
     [When(@"Sean shouts ""([^""]*)""")]
     public void WhenSeanShouts(string message)
     {
