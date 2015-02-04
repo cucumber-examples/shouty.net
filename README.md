@@ -17,7 +17,7 @@ Git:
 
 Subversion:
 
-    svn checkout https://github.com/cucumber-ltd/shouty.java Shouty.NET
+    svn checkout https://github.com/cucumber-ltd/shouty.net Shouty.NET
 
 Or simply [download](https://github.com/cucumber-ltd/shouty.net/releases) a zip or tarball.
 
