@@ -1,5 +1,6 @@
 ﻿using System;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 using NUnit.Framework;
 using Shouty;
 using System.Collections.Generic;
@@ -23,6 +24,17 @@ namespace ShoutyFeatures
     public void GivenTheRangeIs(int range)
     {
       network = new InMemoryNetwork(range);
+    }
+
+    [Given(@"the following people:")]
+    public void GivenTheFollowingPeople(Table table)
+    {
+      IEnumerable<PersonRow> rows = table.CreateSet<PersonRow>();
+
+      foreach (PersonRow row in rows)
+      {
+        people[row.name] = new Person(network, row.location);
+      }
     }
 
     [Given(@"a person named (\w+) at location (\d+)")]
