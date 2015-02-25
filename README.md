@@ -23,7 +23,12 @@ Or simply [download](https://github.com/cucumber-ltd/shouty.net/releases) a zip 
 
 ### Set up environment
 
-TODO
+* Install Visual Studio
+    * [Community Edition](http://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx) if eligible
+* Install SpecFlow integration ([VS2013](http://www.specflow.org/documentation/Visual-Studio-2013-Integration/))
+* Install [NUnit Test Adapter](https://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d)
+* Open Shouty.NET solution in visual studio
+* Select Test > Run > All Tests from the menu, or press `CTRL-R, A`
 
 ### Brainstorm capabilities
 
