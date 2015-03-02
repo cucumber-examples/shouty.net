@@ -13,11 +13,11 @@ That is, if you're attending a BDD/Cucumber course.
 
 Git:
 
-    git clone <https://github.com/cucumber-ltd/shouty.net.git>
+    git clone https://github.com/cucumber-ltd/shouty.net.git
 
 Subversion:
 
-    svn checkout https://github.com/cucumber-ltd/shouty.net Shouty.NET
+    svn checkout https://github.com/cucumber-ltd/shouty.net shouty.net
 
 Or simply [download](https://github.com/cucumber-ltd/shouty.net/releases) a zip or tarball.
 
