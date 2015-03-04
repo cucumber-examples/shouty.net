@@ -22,9 +22,9 @@ namespace Shouty
 
         private bool IsInRange(double[] loc1, double[] loc2)
         {
-            var d = distance(loc1[0], loc1[1], loc2[0], loc2[1]) <= 1000;
-            Console.WriteLine("Distance: %d", d);
-            return d;
+            var d = distance(loc1[0], loc1[1], loc2[0], loc2[1]);
+            Console.WriteLine("Distance: " + d);
+            return d <= 1000;
         }
 
         // Taken from geodatasource.com
