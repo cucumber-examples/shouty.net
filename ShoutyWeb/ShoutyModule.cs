@@ -14,6 +14,10 @@ namespace ShoutyWeb
 
             Get["/people/{personName}"] = _ =>
             {
+                double lat = Request.Query["lat"];
+                double lon = Request.Query["lon"];
+                _shoutyApi.PersonIsIn(_.personName, new[]{lat, lon});
+
                 Dictionary<string, object> model = new Dictionary<string, object>()
                 {
                     {"personName", _.personName},

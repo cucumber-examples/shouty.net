@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -13,25 +14,34 @@ namespace ShoutyFeatures
         public ShoutWebSteps(BrowserContext browserContext)
         {
             _browser = browserContext.Browser;
-            //_browser.Navigate().GoToUrl(WebHooks.Url + "/people/John");
         }
+
+        private readonly Dictionary<string, double[]> _geoLocations = new Dictionary<string, double[]>();
 
         [Given(@"the following locations:")]
         public void GivenTheFollowingLocations(Table table)
         {
-            throw new Exception("FIXME");
+            foreach (var tableRow in table.Rows)
+            {
+                var locationName = tableRow["name"];
+                var lat = Double.Parse(tableRow["lat"]);
+                var lon = Double.Parse(tableRow["lon"]);
+                _geoLocations.Add(locationName, new[] { lat, lon });
+            }
         }
 
         [Given(@"(.*) is around")]
         public void GivenPersonIsAround(string personName)
         {
-            throw new Exception("FIXME");
+            _browser.Navigate().GoToUrl(WebHooks.Url + "/people/" + personName);
         }
 
         [Given(@"(.*) is in (.*)")]
         public void GivenPersonIsInLocation(string personName, string locationName)
         {
-            throw new Exception("FIXME");
+            var geoLocation = _geoLocations[locationName];
+            _browser.Navigate().GoToUrl(
+                WebHooks.Url + "/people/" + personName + "?lat=" + geoLocation[0] + "&lon=" + geoLocation[1]);
         }
 
         [When(@"(.*) shouts")]
