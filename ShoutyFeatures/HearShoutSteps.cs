@@ -10,62 +10,45 @@ namespace ShoutyFeatures
     public class HearShoutSteps
     {
         private Broadcaster broadcaster = new Broadcaster();
-        private Person jeff;
-        private Person phil;
-        private Person sally;
 
-        [Given(@"Jeff is in the Norwich Castle")]
-        public void GivenJeffIsInTheNorwichCastle()
+        private Dictionary<string, Person> people = new Dictionary<string, Person>();
+        private Dictionary<string, double[]> locations = new Dictionary<string, double[]>();
+
+        public HearShoutSteps()
         {
-            jeff = new Person(broadcaster)
-            {
-                GeoLocation = new[] { 52.682729, 1.296386}
-            };
+            people.Add("Phil", new Person(broadcaster));
+            people.Add("Sally", new Person(broadcaster));
+            people.Add("Jeff", new Person(broadcaster));
+
+            locations.Add("the Norwich Castle", new[] { 52.682729, 1.296386 });
+            locations.Add("Washington DC", new[] { 38.8951, -77.0367 });
+            locations.Add("the Bell Hotel Norwich", new[] { 52.6725, 1.29517 });
         }
 
-        [Given(@"Phil is in Washington DC")]
-        public void GivenPhilIsInWashingtonDC()
+        [Given(@"(.*) is in (.*)")]
+        public void GivenSomeoneIsInLocation(string personName, string locationName)
         {
-            phil = new Person(broadcaster)
-            {
-                GeoLocation = new[] { 38.8951, -77.0367}
-            };
-        }
-
-        [Given(@"Sally is in the Norwich Castle")]
-        public void GivenSallyIsInTheNorwichCastle()
-        {
-            sally = new Person(broadcaster)
-            {
-                GeoLocation = new[] { 52.682729, 1.296386 }
-            };
-        }
-
-        [Given(@"Phil is in the Bell Hotel Norwich")]
-        public void GivenPhilIsInTheBellHotelNorwich()
-        {
-            phil = new Person(broadcaster)
-            {
-                GeoLocation = new[] { 52.6725, 1.29517 }
-            };
+            var person = people[personName];
+            var geoLocation = locations[locationName];
+            person.GeoLocation = geoLocation;
         }
 
         [When(@"Jeff shouts")]
         public void WhenJeffShouts()
         {
-            jeff.Shout("hello");
+            people["Jeff"].Shout("hello");
         }
 
         [When(@"Sally shouts")]
         public void WhenSallyShouts()
         {
-            sally.Shout("sally's shout");
+            people["Sally"].Shout("sally's shout");
         }
 
         [Then(@"Phil should not hear Jeff's shout")]
         public void ThenPhilShouldNotHearJeffSShout()
         {
-            Assert.AreEqual(new List<string>(), phil.MessagesHeard);
+            Assert.AreEqual(new List<string>(), people["Phil"].MessagesHeard);
         }
 
         [Then(@"Phil should hear Sally's shout")]
@@ -73,7 +56,7 @@ namespace ShoutyFeatures
         {
             List<string> expected = new List<string>();
             expected.Add("sally's shout");
-            Assert.AreEqual(expected, phil.MessagesHeard);
+            Assert.AreEqual(expected, people["Phil"].MessagesHeard);
         }
     }
 
@@ -85,9 +68,11 @@ namespace ShoutyFeatures
         public Person(Broadcaster broadcaster)
         {
             this.broadcaster = broadcaster;
+            this.GeoLocation = new[] {0.0, 0.0};
             broadcaster.Subscribe(this);
         }
 
+        // TODO: Extract to GeoLocation class
         public double[] GeoLocation { get; set; }
 
         public List<string> MessagesHeard
@@ -128,9 +113,12 @@ namespace ShoutyFeatures
 
         private bool IsInRange(double[] loc1, double[] loc2)
         {
-            return distance(loc1[0], loc1[1], loc2[0], loc2[1]) <= 1000;
+            var d = distance(loc1[0], loc1[1], loc2[0], loc2[1]) <= 1000;
+            Console.WriteLine("Distance: %d", d);
+            return d;
         }
 
+        // Taken from geodatasource.com
         private double distance(double lat1, double lon1, double lat2, double lon2) {
           double theta = lon1 - lon2;
           double dist = Math.Sin(deg2rad(lat1)) * Math.Sin(deg2rad(lat2)) + Math.Cos(deg2rad(lat1)) * Math.Cos(deg2rad(lat2)) * Math.Cos(deg2rad(theta));

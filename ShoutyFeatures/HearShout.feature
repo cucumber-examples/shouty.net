@@ -10,6 +10,17 @@
   
   Assumption:
   - Everybody has geo location and network
+
+  Questions:
+  - Should people hear their own messages?
+
+  Background: 
+    Given the following locations:
+	  | name                   | lat       | lon      |
+	  | the Norwich Castle     | 52.682729 | 1.296386 |
+	  | Washington DC          | 38.8951   | -77.0367 |
+	  | the Bell Hotel Norwich | 52.6725   | 1.29517  |  
+
 	
   Scenario: Phil can't hear Jeff who is far away
 	Given Jeff is in the Norwich Castle
