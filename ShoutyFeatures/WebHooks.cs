@@ -4,6 +4,7 @@ using Nancy.Bootstrapper;
 using Nancy.Hosting.Self;
 using Nancy.TinyIoc;
 using OpenQA.Selenium;
+using ShoutyWeb;
 using TechTalk.SpecFlow;
 
 namespace ShoutyFeatures
@@ -31,6 +32,7 @@ namespace ShoutyFeatures
         [BeforeScenario()]
         public void StartServer()
         {
+            ShoutyModule.Reset();
             _server = new NancyHost(HostConfiguration, new Uri(Url));
             _server.Start();
         }

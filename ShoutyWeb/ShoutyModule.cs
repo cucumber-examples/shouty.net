@@ -7,7 +7,7 @@ namespace ShoutyWeb
 {
     public class ShoutyModule : NancyModule
     {
-        private static readonly ShoutyApi _shoutyApi = new ShoutyApi();
+        private static ShoutyApi _shoutyApi = new ShoutyApi();
 
         public ShoutyModule()
         {
@@ -41,6 +41,11 @@ namespace ShoutyWeb
                 _shoutyApi.PersonShouts(personName, message);
                 return Response.AsRedirect(Request.Headers.Referrer);
             };
+        }
+
+        public static void Reset()
+        {
+            _shoutyApi = new ShoutyApi();
         }
     }
 }
