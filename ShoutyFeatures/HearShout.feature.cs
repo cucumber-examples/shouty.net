@@ -32,7 +32,9 @@ namespace ShoutyFeatures
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Hear shout", "\nA Description goes here", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Hear shout", "\r\nRules:\r\n- Must be within 1 km\r\n- Displayed in order of creation\r\n- Network and " +
+                    "geo location must be enabled\r\n\r\nNotes:\r\n- Display error when no geo or network\r\n" +
+                    "\r\nAssumption:\r\n- Everybody has geo location and network", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,11 +67,60 @@ namespace ShoutyFeatures
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("What should it do?")]
-        public virtual void WhatShouldItDo()
+        [NUnit.Framework.DescriptionAttribute("Phil can\'t hear Jeff who is far away")]
+        public virtual void PhilCanTHearJeffWhoIsFarAway()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("What should it do?", ((string[])(null)));
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phil can\'t hear Jeff who is far away", ((string[])(null)));
+#line 14
+  this.ScenarioSetup(scenarioInfo);
+#line 15
+ testRunner.Given("Jeff is in the Norwich Castle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+ testRunner.And("Phil is in Washington DC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.When("Jeff shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+ testRunner.Then("Phil should not hear Jeff\'s shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Phil can hear Sally who is within range")]
+        public virtual void PhilCanHearSallyWhoIsWithinRange()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phil can hear Sally who is within range", ((string[])(null)));
+#line 20
+  this.ScenarioSetup(scenarioInfo);
+#line 21
+ testRunner.Given("Sally is in the Norwich Castle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 22
+ testRunner.And("Phil is in the Bell Hotel Norwich", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.When("Sally shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
+ testRunner.Then("Phil should hear Sally\'s shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Jeff shouts after Lisa shouts")]
+        public virtual void JeffShoutsAfterLisaShouts()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Jeff shouts after Lisa shouts", ((string[])(null)));
+#line 26
+  this.ScenarioSetup(scenarioInfo);
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Jeff and Lisa shout at the same time")]
+        public virtual void JeffAndLisaShoutAtTheSameTime()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Jeff and Lisa shout at the same time", ((string[])(null)));
+#line 28
   this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
