@@ -16,7 +16,8 @@ namespace ShoutyFeatures
     [Binding]
     public class WebBinding
     {
-        private const string Url = "http://localhost:1234";
+        private readonly IWebDriver _browser;
+        public const string Url = "http://localhost:1234";
         private static readonly HostConfiguration HostConfiguration = new HostConfiguration()
         {
             UrlReservations = new UrlReservations()
@@ -25,21 +26,18 @@ namespace ShoutyFeatures
             }
         };
 
-        private IWebDriver _browser;
         private NancyHost _server;
+
+        public WebBinding(BrowserContext browserContext)
+        {
+            _browser = browserContext.Browser;
+        }
 
         [BeforeScenario()]
         public void StartServer()
         {
             _server = new NancyHost(HostConfiguration, new Uri(Url));
             _server.Start();
-        }
-
-        [BeforeScenario()]
-        public void OpenBrowser()
-        {
-            _browser = new InternetExplorerDriver();
-            _browser.Navigate().GoToUrl(Url + "/people/John");
         }
 
         [AfterScenario()]
@@ -56,16 +54,12 @@ namespace ShoutyFeatures
         }
     }
 
+    // Tell Nancy to load views from the ShoutyWeb project
     public class Bootstrapper : DefaultNancyBootstrapper
     {
         protected override void ApplicationStartup(TinyIoCContainer c, IPipelines p)
         {
-            this.Conventions.ViewLocationConventions.Add((viewName, model, context) =>
-            {
-                // This doesn't seem to work :-(
-                // So we copy the views for now...
-                return string.Concat("../../../ShoutyWeb/views/", viewName);
-            });   
+            Conventions.ViewLocationConventions.Add((viewName, model, context) => string.Concat("../../../ShoutyWeb/views/", viewName));   
         }
     }
 }
