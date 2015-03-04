@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Nancy;
 using Shouty;
 
@@ -11,8 +10,6 @@ namespace ShoutyWeb
 
         public ShoutyModule()
         {
-            Console.WriteLine("ShoutyModule created");
-
             Get["/"] = _ => View["index.html"];
 
             Get["/people/{personName}"] = _ =>
@@ -29,10 +26,7 @@ namespace ShoutyWeb
             {
                 string personName = Request.Form["personName"];
                 string message = Request.Form["message"];
-                Console.WriteLine(personName + ":" + message);
                 _shoutyApi.PersonShouts(personName, message);
-                var heard = _shoutyApi.MessagesHeardBy(personName);
-                Console.WriteLine(heard);
                 return Response.AsRedirect(Request.Headers.Referrer);
             };
         }
