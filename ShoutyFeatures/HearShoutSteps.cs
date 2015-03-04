@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -78,10 +79,12 @@ namespace ShoutyFeatures
     public class Person
     {
         private readonly Broadcaster broadcaster;
+        private readonly List<string> messagesHeard = new List<string>();
 
         public Person(Broadcaster broadcaster)
         {
             this.broadcaster = broadcaster;
+            broadcaster.Subscribe(this);
         }
 
         public double[] GeoLocation { get; set; }
@@ -90,20 +93,51 @@ namespace ShoutyFeatures
         {
             get
             {
-                return new List<string>();
+                return messagesHeard;
             }
         }
 
         public void Shout(string message)
         {
-            broadcaster.broadcast(message);
+            broadcaster.Broadcast(message, GeoLocation);
+        }
+
+        public void Hear(string message)
+        {
+            messagesHeard.Add(message);
         }
     }
 
     public class Broadcaster
     {
-        public void broadcast(string message)
+        private readonly List<Person> subscribers = new List<Person>();
+
+        public void Broadcast(string message, double[] shouterGeoLocation)
         {
+            // Loop over all subscribers
+            foreach (var subscriber in subscribers)
+            {
+                //   Deliver message if subscriber is in range
+                if (IsInRange(subscriber.GeoLocation, shouterGeoLocation))
+                {
+                    subscriber.Hear(message);
+                }
+            }
+        }
+
+        private bool IsInRange(double[] loc1, double[] loc2)
+        {
+            return DistanceInMetres(loc1, loc2) <= 1000;
+        }
+
+        private int DistanceInMetres(double[] loc1, double[] loc2)
+        {
+            return 1000;
+        }
+
+        public void Subscribe(Person person)
+        {
+            subscribers.Add(person);
         }
     }
 }
