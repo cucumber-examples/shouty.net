@@ -118,7 +118,7 @@ Questions:
 #line 27
  testRunner.When("Jeff shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 28
- testRunner.Then("Phil should not hear Jeff\'s shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Phil should not hear anything", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -137,9 +137,9 @@ Questions:
 #line 32
  testRunner.And("Phil is in the Bell Hotel Norwich", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
- testRunner.When("Sally shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Sally shouts \"You around Phil?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 34
- testRunner.Then("Phil should hear Sally\'s shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Phil should hear \"You around Phil?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -154,8 +154,10 @@ Questions:
 #line 17
   this.FeatureBackground();
 #line 37
- testRunner.When("Sally shouts \"one\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("Phil is around", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 38
+ testRunner.When("Sally shouts \"one\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
  testRunner.And("Jeff shouts \"two\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -164,7 +166,7 @@ Questions:
                         "one"});
             table2.AddRow(new string[] {
                         "two"});
-#line 39
+#line 40
  testRunner.Then("Phil should hear:", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();

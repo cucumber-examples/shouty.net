@@ -25,15 +25,16 @@
 	Given Jeff is in the Norwich Castle
 	And Phil is in Washington DC
 	When Jeff shouts
-	Then Phil should not hear Jeff's shout
+	Then Phil should not hear anything
 
   Scenario: Phil can hear Sally who is within range
 	Given Sally is in the Norwich Castle
 	And Phil is in the Bell Hotel Norwich
-	When Sally shouts
-	Then Phil should hear Sally's shout
+	When Sally shouts "You around Phil?"
+	Then Phil should hear "You around Phil?"
 
   Scenario: Phil hears Jeff's shout after Sally's shout
+	Given Phil is around
 	When Sally shouts "one"
 	And Jeff shouts "two"
 	Then Phil should hear:
