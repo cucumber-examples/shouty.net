@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Shouty</title>
+</head>
+<body>
+<h1>@Model.personName</h1>
+<form action="/messages" method="POST">
+    <input name="personName" value="@Model.personName" type="hidden">
+    <input name="message" placeholder="What's happening?">
+</form>
+<ul>
+    @Each.messages
+    <li>@Current</li>
+    @EndEach
+</ul>
+</body>
+</html>
