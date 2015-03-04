@@ -54,7 +54,21 @@ namespace ShoutyFeatures
     {
         protected override void ApplicationStartup(TinyIoCContainer c, IPipelines p)
         {
-            Conventions.ViewLocationConventions.Add((viewName, model, context) => string.Concat("../../../ShoutyWeb/views/", viewName));   
+            Conventions.ViewLocationConventions.Add((viewName, model, context) =>
+                string.Concat("../../../ShoutyWeb/views/", viewName));
+        }
+
+        protected override IRootPathProvider RootPathProvider
+        {
+            get { return new CustomRootPathProvider(); }
+        }
+    }
+
+    public class CustomRootPathProvider : IRootPathProvider
+    {
+        public string GetRootPath()
+        {
+            return AppDomain.CurrentDomain.BaseDirectory;
         }
     }
 }
