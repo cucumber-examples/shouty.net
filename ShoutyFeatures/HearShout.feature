@@ -21,7 +21,6 @@
 	  | Washington DC          | 38.8951   | -77.0367 |
 	  | the Bell Hotel Norwich | 52.6725   | 1.29517  |  
 
-	
   Scenario: Phil can't hear Jeff who is far away
 	Given Jeff is in the Norwich Castle
 	And Phil is in Washington DC

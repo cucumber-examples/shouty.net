@@ -19,10 +19,18 @@ namespace ShoutyFeatures
             people.Add("Phil", new Person(broadcaster));
             people.Add("Sally", new Person(broadcaster));
             people.Add("Jeff", new Person(broadcaster));
+        }
 
-            locations.Add("the Norwich Castle", new[] { 52.682729, 1.296386 });
-            locations.Add("Washington DC", new[] { 38.8951, -77.0367 });
-            locations.Add("the Bell Hotel Norwich", new[] { 52.6725, 1.29517 });
+        [Given(@"the following locations:")]
+        public void GivenTheFollowingLocations(Table table)
+        {
+            foreach (var tableRow in table.Rows)
+            {
+                var locationName = tableRow["name"];
+                var lat = Double.Parse(tableRow["lat"]);
+                var lon = Double.Parse(tableRow["lon"]);
+                locations.Add(locationName, new[] { lat, lon });
+            }
         }
 
         [Given(@"(.*) is in (.*)")]
