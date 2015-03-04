@@ -10,7 +10,7 @@ namespace ShoutyFeatures
 {
     public class BrowserContext
     {
-        private IWebDriver _browser = new InternetExplorerDriver();
+        private IWebDriver _browser = new InternetExplorerDriver("../..");
 
         public IWebDriver Browser
         {

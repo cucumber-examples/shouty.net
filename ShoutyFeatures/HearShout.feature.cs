@@ -20,7 +20,7 @@ namespace ShoutyFeatures
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Hear shout")]
-    [NUnit.Framework.CategoryAttribute("api")]
+    [NUnit.Framework.CategoryAttribute("web")]
     public partial class HearShoutFeature
     {
         
@@ -47,7 +47,7 @@ Assumption:
 
 Questions:
 - Should people hear their own messages?", ProgrammingLanguage.CSharp, new string[] {
-                        "api"});
+                        "web"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

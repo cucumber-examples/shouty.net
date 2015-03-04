@@ -1,4 +1,4 @@
-﻿@api
+﻿@web
 Feature: Hear shout
 
   Rules:
