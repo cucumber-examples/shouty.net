@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -127,12 +128,25 @@ namespace ShoutyFeatures
 
         private bool IsInRange(double[] loc1, double[] loc2)
         {
-            return DistanceInMetres(loc1, loc2) <= 1000;
+            return distance(loc1[0], loc1[1], loc2[0], loc2[1]) <= 1000;
         }
 
-        private int DistanceInMetres(double[] loc1, double[] loc2)
-        {
-            return 1000;
+        private double distance(double lat1, double lon1, double lat2, double lon2) {
+          double theta = lon1 - lon2;
+          double dist = Math.Sin(deg2rad(lat1)) * Math.Sin(deg2rad(lat2)) + Math.Cos(deg2rad(lat1)) * Math.Cos(deg2rad(lat2)) * Math.Cos(deg2rad(theta));
+          dist = Math.Acos(dist);
+          dist = rad2deg(dist);
+          dist = dist * 60 * 1.1515;
+          dist = dist * 1.609344;
+          return (dist);
+        }
+
+        private double deg2rad(double deg) {
+          return (deg * Math.PI / 180.0);
+        }
+
+        private double rad2deg(double rad) {
+          return (rad / Math.PI * 180.0);
         }
 
         public void Subscribe(Person person)
