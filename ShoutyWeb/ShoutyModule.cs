@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Nancy;
 using Shouty;
 
@@ -14,9 +15,16 @@ namespace ShoutyWeb
 
             Get["/people/{personName}"] = _ =>
             {
-                double lat = Request.Query["lat"];
-                double lon = Request.Query["lon"];
-                _shoutyApi.PersonIsIn(_.personName, new[]{lat, lon});
+                try
+                {
+                    double lat = Request.Query["lat"];
+                    double lon = Request.Query["lon"];
+                    _shoutyApi.PersonIsIn(_.personName, new[] {lat, lon});
+                }
+                catch (Exception ignore)
+                {
+                    // Happens when lat/lon is not on query
+                }
 
                 Dictionary<string, object> model = new Dictionary<string, object>()
                 {

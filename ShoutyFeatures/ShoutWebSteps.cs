@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -33,8 +35,13 @@ namespace ShoutyFeatures
         [Given(@"(.*) is around")]
         public void GivenPersonIsAround(string personName)
         {
-            _browser.Navigate().GoToUrl(WebHooks.Url + "/people/" + personName);
+            GoToPersonsPage(personName);
             Thread.Sleep(1000);
+        }
+
+        private void GoToPersonsPage(string personName)
+        {
+            _browser.Navigate().GoToUrl(WebHooks.Url + "/people/" + personName);
         }
 
         [Given(@"(.*) is in (.*)")]
@@ -49,6 +56,7 @@ namespace ShoutyFeatures
         [When(@"(.*) shouts")]
         public void WhenPersonShouts(string personName)
         {
+            GoToPersonsPage(personName);
             var messageField = _browser.FindElement(By.Name("message"));
             messageField.SendKeys("Hello from " + personName);
             messageField.Submit();
@@ -70,13 +78,24 @@ namespace ShoutyFeatures
         [Then(@"(.*) should not hear anything")]
         public void ThenPersonShouldNotHearAnything(string personName)
         {
-            throw new Exception("FIXME");
+            GoToPersonsPage(personName);
+            ReadOnlyCollection<IWebElement> lis = _browser.FindElements(By.CssSelector("#messages li"));
+            Assert.AreEqual(new List<IWebElement>(), lis);
         }
 
         [Then(@"(.*) should hear ""(.*)""")]
         public void ThenPerspnShouldHearMessage(string personName, string expectedMessage)
         {
             throw new Exception("FIXME");
+        }
+
+        [After]
+        public void SleepIfFailed()
+        {
+            if (ScenarioContext.Current.TestError != null)
+            {
+                Thread.Sleep(20000);
+            }
         }
     }
 }
