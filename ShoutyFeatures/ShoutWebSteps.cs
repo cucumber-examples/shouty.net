@@ -34,6 +34,7 @@ namespace ShoutyFeatures
         public void GivenPersonIsAround(string personName)
         {
             _browser.Navigate().GoToUrl(WebHooks.Url + "/people/" + personName);
+            Thread.Sleep(1000);
         }
 
         [Given(@"(.*) is in (.*)")]
@@ -42,12 +43,16 @@ namespace ShoutyFeatures
             var geoLocation = _geoLocations[locationName];
             _browser.Navigate().GoToUrl(
                 WebHooks.Url + "/people/" + personName + "?lat=" + geoLocation[0] + "&lon=" + geoLocation[1]);
+            Thread.Sleep(1000);
         }
 
         [When(@"(.*) shouts")]
         public void WhenPersonShouts(string personName)
         {
-            throw new Exception("FIXME");
+            var messageField = _browser.FindElement(By.Name("message"));
+            messageField.SendKeys("Hello from " + personName);
+            messageField.Submit();
+            Thread.Sleep(1000);
         }
 
         [When(@"(.*) shouts ""(.*)""")]
@@ -61,7 +66,6 @@ namespace ShoutyFeatures
         {
             throw new Exception("FIXME");
         }
-
 
         [Then(@"(.*) should not hear anything")]
         public void ThenPersonShouldNotHearAnything(string personName)
