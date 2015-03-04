@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -56,23 +57,32 @@ namespace ShoutyFeatures
         [When(@"(.*) shouts")]
         public void WhenPersonShouts(string personName)
         {
+            PersonShouts(personName, "Hello from " + personName);
+            Thread.Sleep(1000);
+        }
+
+        private void PersonShouts(string personName, string message)
+        {
             GoToPersonsPage(personName);
             var messageField = _browser.FindElement(By.Name("message"));
-            messageField.SendKeys("Hello from " + personName);
+            messageField.SendKeys(message);
             messageField.Submit();
-            Thread.Sleep(1000);
         }
 
         [When(@"(.*) shouts ""(.*)""")]
         public void WhenPersonShouts(string personName, string message)
         {
-            throw new Exception("FIXME");
+            PersonShouts(personName, message);
         }
 
         [Then(@"(.*) should hear:")]
         public void ThenPersonShouldHear(string personName, Table expectedShoutsTable)
         {
-            throw new Exception("FIXME");
+            GoToPersonsPage(personName);
+            ReadOnlyCollection<IWebElement> lis = _browser.FindElements(By.CssSelector("#messages li"));
+            var actualMessages = lis.Select((li) => li.Text);
+            var expectedMessages = expectedShoutsTable.Rows.Select((row) => row[0]);
+            Assert.AreEqual(expectedMessages, actualMessages);
         }
 
         [Then(@"(.*) should not hear anything")]
@@ -84,9 +94,16 @@ namespace ShoutyFeatures
         }
 
         [Then(@"(.*) should hear ""(.*)""")]
-        public void ThenPerspnShouldHearMessage(string personName, string expectedMessage)
+        public void ThenPersonShouldHearMessage(string personName, string expectedMessage)
         {
-            throw new Exception("FIXME");
+            GoToPersonsPage(personName);
+            ReadOnlyCollection<IWebElement> lis = _browser.FindElements(By.CssSelector("#messages li"));
+            var actualMessages = lis.Select((li) => li.Text);
+            var expectedMessages = new List<string>()
+            {
+                expectedMessage
+            };
+            Assert.AreEqual(expectedMessages, actualMessages);
         }
 
         [After]
@@ -94,7 +111,7 @@ namespace ShoutyFeatures
         {
             if (ScenarioContext.Current.TestError != null)
             {
-                Thread.Sleep(20000);
+                Thread.Sleep(2000);
             }
         }
     }
