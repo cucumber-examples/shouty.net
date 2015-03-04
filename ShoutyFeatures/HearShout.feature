@@ -33,6 +33,15 @@
 	When Sally shouts
 	Then Phil should hear Sally's shout
 
-  Scenario: Jeff shouts after Lisa shouts
+  Scenario: Phil hears Jeff's shout after Sally's shout
+	When Sally shouts "one"
+	And Jeff shouts "two"
+	Then Phil should hear:
+	  | message |
+	  | one     |
+	  | two     |
 
-  Scenario: Jeff and Lisa shout at the same time
+
+
+
+  

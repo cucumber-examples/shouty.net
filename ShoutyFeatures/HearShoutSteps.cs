@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -52,6 +53,27 @@ namespace ShoutyFeatures
         {
             people["Sally"].Shout("sally's shout");
         }
+
+        [When(@"Sally shouts ""(.*)""")]
+        public void WhenSallyShouts(string message)
+        {
+            people["Sally"].Shout(message);
+        }
+
+        [When(@"Jeff shouts ""(.*)""")]
+        public void WhenJeffShouts(string message)
+        {
+            people["Jeff"].Shout(message);
+        }
+
+        [Then(@"Phil should hear:")]
+        public void ThenPhilShouldHear(Table expectedShoutsTable)
+        {
+            var expectedShouts = expectedShoutsTable.Rows.Select(row => row[0]);
+            var actualShouts = people["Phil"].MessagesHeard;
+            Assert.AreEqual(expectedShouts, actualShouts);
+        }
+
 
         [Then(@"Phil should not hear Jeff's shout")]
         public void ThenPhilShouldNotHearJeffSShout()

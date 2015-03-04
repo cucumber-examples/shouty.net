@@ -145,27 +145,27 @@ Questions:
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Jeff shouts after Lisa shouts")]
-        public virtual void JeffShoutsAfterLisaShouts()
+        [NUnit.Framework.DescriptionAttribute("Phil hears Jeff\'s shout after Sally\'s shout")]
+        public virtual void PhilHearsJeffSShoutAfterSallySShout()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Jeff shouts after Lisa shouts", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phil hears Jeff\'s shout after Sally\'s shout", ((string[])(null)));
 #line 36
   this.ScenarioSetup(scenarioInfo);
 #line 17
   this.FeatureBackground();
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Jeff and Lisa shout at the same time")]
-        public virtual void JeffAndLisaShoutAtTheSameTime()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Jeff and Lisa shout at the same time", ((string[])(null)));
+#line 37
+ testRunner.When("Sally shouts \"one\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
-  this.ScenarioSetup(scenarioInfo);
-#line 17
-  this.FeatureBackground();
+ testRunner.And("Jeff shouts \"two\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "message"});
+            table2.AddRow(new string[] {
+                        "one"});
+            table2.AddRow(new string[] {
+                        "two"});
+#line 39
+ testRunner.Then("Phil should hear:", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
