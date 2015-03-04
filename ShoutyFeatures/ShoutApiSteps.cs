@@ -7,17 +7,11 @@ using TechTalk.SpecFlow;
 
 namespace ShoutyFeatures
 {
-    [Binding]
-    public class HearShoutSteps
+    [Binding, Scope(Tag = "api")]
+    public class ShoutApiSteps
     {
         private readonly ShoutyApi _shoutyApi = new ShoutyApi();
         private readonly Dictionary<string, double[]> _geoLocations = new Dictionary<string, double[]>();
-
-        public HearShoutSteps(BrowserContext browserContext)
-        {
-            var browser = browserContext.Browser;
-            browser.Navigate().GoToUrl(WebBinding.Url + "/people/John");
-        }
 
         [Given(@"the following locations:")]
         public void GivenTheFollowingLocations(Table table)

@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
 using Nancy;
 using Nancy.Bootstrapper;
-using Nancy.Conventions;
 using Nancy.Hosting.Self;
 using Nancy.TinyIoc;
-using Nancy.ViewEngines;
 using OpenQA.Selenium;
-using OpenQA.Selenium.IE;
 using TechTalk.SpecFlow;
 
 namespace ShoutyFeatures
 {
-    [Binding]
-    public class WebBinding
+    [Binding, Scope(Tag = "web")]
+    public class WebHooks
     {
         private readonly IWebDriver _browser;
         public const string Url = "http://localhost:1234";
@@ -28,7 +23,7 @@ namespace ShoutyFeatures
 
         private NancyHost _server;
 
-        public WebBinding(BrowserContext browserContext)
+        public WebHooks(BrowserContext browserContext)
         {
             _browser = browserContext.Browser;
         }

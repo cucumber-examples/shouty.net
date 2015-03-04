@@ -1,4 +1,5 @@
-﻿Feature: Hear shout
+﻿@api
+Feature: Hear shout
 
   Rules:
   - Must be within 1 km

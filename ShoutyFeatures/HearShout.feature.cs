@@ -20,6 +20,7 @@ namespace ShoutyFeatures
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Hear shout")]
+    [NUnit.Framework.CategoryAttribute("api")]
     public partial class HearShoutFeature
     {
         
@@ -45,7 +46,8 @@ Assumption:
 - Everybody has geo location and network
 
 Questions:
-- Should people hear their own messages?", ProgrammingLanguage.CSharp, ((string[])(null)));
+- Should people hear their own messages?", ProgrammingLanguage.CSharp, new string[] {
+                        "api"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -79,7 +81,7 @@ Questions:
         
         public virtual void FeatureBackground()
         {
-#line 17
+#line 18
   #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
@@ -97,7 +99,7 @@ Questions:
                         "the Bell Hotel Norwich",
                         "52.6725",
                         "1.29517"});
-#line 18
+#line 19
     testRunner.Given("the following locations:", ((string)(null)), table1, "Given ");
 #line hidden
         }
@@ -107,17 +109,17 @@ Questions:
         public virtual void PhilCanTHearJeffWhoIsFarAway()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phil can\'t hear Jeff who is far away", ((string[])(null)));
-#line 24
-  this.ScenarioSetup(scenarioInfo);
-#line 17
-  this.FeatureBackground();
 #line 25
- testRunner.Given("Jeff is in the Norwich Castle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  this.ScenarioSetup(scenarioInfo);
+#line 18
+  this.FeatureBackground();
 #line 26
- testRunner.And("Phil is in Washington DC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Jeff is in the Norwich Castle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
- testRunner.When("Jeff shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Phil is in Washington DC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
+ testRunner.When("Jeff shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
  testRunner.Then("Phil should not hear anything", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -128,17 +130,17 @@ Questions:
         public virtual void PhilCanHearSallyWhoIsWithinRange()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phil can hear Sally who is within range", ((string[])(null)));
-#line 30
-  this.ScenarioSetup(scenarioInfo);
-#line 17
-  this.FeatureBackground();
 #line 31
- testRunner.Given("Sally is in the Norwich Castle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  this.ScenarioSetup(scenarioInfo);
+#line 18
+  this.FeatureBackground();
 #line 32
- testRunner.And("Phil is in the Bell Hotel Norwich", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Sally is in the Norwich Castle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 33
- testRunner.When("Sally shouts \"You around Phil?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Phil is in the Bell Hotel Norwich", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
+ testRunner.When("Sally shouts \"You around Phil?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
  testRunner.Then("Phil should hear \"You around Phil?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -149,15 +151,15 @@ Questions:
         public virtual void PhilHearsJeffSShoutAfterSallySShout()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phil hears Jeff\'s shout after Sally\'s shout", ((string[])(null)));
-#line 36
-  this.ScenarioSetup(scenarioInfo);
-#line 17
-  this.FeatureBackground();
 #line 37
- testRunner.Given("Phil is around", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  this.ScenarioSetup(scenarioInfo);
+#line 18
+  this.FeatureBackground();
 #line 38
- testRunner.When("Sally shouts \"one\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("Phil is around", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 39
+ testRunner.When("Sally shouts \"one\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
  testRunner.And("Jeff shouts \"two\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -166,7 +168,7 @@ Questions:
                         "one"});
             table2.AddRow(new string[] {
                         "two"});
-#line 40
+#line 41
  testRunner.Then("Phil should hear:", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
