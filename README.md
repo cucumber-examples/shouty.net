@@ -1,7 +1,7 @@
 # Shouty
 
 Shouty is a social networking application for short physical distances.
-When someone shouts, only people within 500m kan hear it.
+When someone shouts, only people within 100m can hear it.
 
 Shouty doesn't exist yet - you will implement it yourself!
 
@@ -17,7 +17,7 @@ Git:
 
 Subversion:
 
-    svn checkout https://github.com/cucumber-ltd/shouty.net shouty.net
+    svn checkout https://github.com/cucumber-ltd/shouty.net/trunk shouty.net
 
 Or simply [download](https://github.com/cucumber-ltd/shouty.net/releases) a zip or tarball.
 
