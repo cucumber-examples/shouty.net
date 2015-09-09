@@ -14,10 +14,13 @@ That is, if you're attending a BDD/Cucumber course.
 Git:
 
     git clone https://github.com/cucumber-ltd/shouty.net.git
+    cd shouty.net
+    git checkout YYYY-MM-DD
 
 Subversion:
 
-    svn checkout https://github.com/cucumber-ltd/shouty.net/trunk shouty.net
+    svn checkout https://github.com/cucumber-ltd/shouty.net/branches/YYYY-MM-DD shouty.net
+    cd shouty.net
 
 Or simply [download](https://github.com/cucumber-ltd/shouty.net/releases) a zip or tarball.
 
