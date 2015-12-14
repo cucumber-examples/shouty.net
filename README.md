@@ -11,18 +11,32 @@ That is, if you're attending a BDD/Cucumber course.
 
 ### Get the code
 
+You'll be working on a branch of the repository that has been set up for the
+training. This allows you to catch up with the trainer's code throughout the day.
+
+Substitute `THEBRANCH` below with what the trainer tells you.
+It's usually today's date, followed by the trainer's initials: `YYYY-MM-DD-FL`.
+
 Git:
 
     git clone https://github.com/cucumber-ltd/shouty.net.git
     cd shouty.net
-    git checkout YYYY-MM-DD
+    git checkout THEBRANCH
 
 Subversion:
 
-    svn checkout https://github.com/cucumber-ltd/shouty.net/branches/YYYY-MM-DD shouty.net
+    svn checkout https://github.com/cucumber-ltd/shouty.net/branches/THEBRANCH shouty.net
     cd shouty.net
 
 Or simply [download](https://github.com/cucumber-ltd/shouty.net/releases) a zip or tarball.
+
+### Catch up!
+
+Throughout the day - if you want to catch up with what the trainer has pushed to this
+branch, simply do:
+
+    git reset --hard  # This blows away your local changes
+    git pull          # This updates your working copy with the latest code
 
 ### Set up environment
 
