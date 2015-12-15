@@ -63,6 +63,7 @@
       <DependentUpon>HearShout.feature</DependentUpon>
     </Compile>
     <Compile Include="ShoutSteps.cs" />
+    <Compile Include="UserHearsShoutSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
