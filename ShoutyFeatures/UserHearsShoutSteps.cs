@@ -2,24 +2,7 @@
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-
-class ShoutyMainApi
-{
-    public void SetLocation(string name, int location)
-    {
-
-    }
-
-    public void Shout(string name, string message)
-    {
-
-    }
-
-    public List<string> messagesHeard(string name)
-    {
-        return new List<string>();
-    }
-};
+using Shouty;
 
 namespace ShoutyFeatures
 {

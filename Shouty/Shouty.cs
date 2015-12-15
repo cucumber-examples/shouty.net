@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace Shouty
 {
-    public class Shouty
+    public class ShoutyMainApi
     {
-        // This is where we'll write the code of our Shouty app
-    }
+        public void SetLocation(string name, int location)
+        {
+
+        }
+
+        public void Shout(string name, string message)
+        {
+
+        }
+
+        public List<string> messagesHeard(string name)
+        {
+            return new List<string>();
+        }
+    };
 }
