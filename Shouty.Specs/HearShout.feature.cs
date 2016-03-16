@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ShoutyFeatures
+namespace Shouty.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -47,7 +47,7 @@ namespace ShoutyFeatures
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "Hear shout")))
             {
-                ShoutyFeatures.HearShoutFeature.FeatureSetup(null);
+                Shouty.Specs.HearShoutFeature.FeatureSetup(null);
             }
         }
         

@@ -6,8 +6,8 @@
     <ProjectGuid>{494245D6-C86B-4E14-A23E-D8DBFF374EAE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ShoutyFeatures</RootNamespace>
-    <AssemblyName>ShoutyFeatures</AssemblyName>
+    <RootNamespace>Shouty.Specs</RootNamespace>
+    <AssemblyName>Shouty.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
