@@ -25,5 +25,13 @@ namespace Shouty.Web.Controllers
 
             return RedirectToAction("Index", new { id });
         }
+
+        [HttpPost]
+        public ActionResult Shout(string id, string message)
+        {
+            shoutyApi.Shout(id, message);
+
+            return RedirectToAction("Index", new { id });
+        }
     }
 }
