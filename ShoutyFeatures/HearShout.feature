@@ -1,5 +1,5 @@
 ﻿Feature: Hear shout
 
-  A Description goes here
+A Description goes here
 	
-  Scenario: What should it do?
+Scenario: What should it do?
