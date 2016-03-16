@@ -29,5 +29,11 @@ namespace ShoutyFeatures
             var messages = shoutyApi.GetMessages("Linda");
             Assert.AreEqual(0, messages.Count, "Should hear nothing");
         }
+
+        [Then(@"Linda should hear Fred’s shout")]
+        public void ThenLindaShouldHearFredSShout()
+        {
+            ScenarioContext.Current.Pending();
+        }
     }
 }
