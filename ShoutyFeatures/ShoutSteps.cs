@@ -11,17 +11,16 @@ namespace ShoutyFeatures
         private readonly ShoutyApi shoutyApi = new ShoutyApi();
 
         [Given(@"(.*) is at \[(.*), (.*)]")]
-        public void GivenLindaIsAt(string name, double lat, double lon)
+        public void GivenPersonIsAt(string name, double lat, double lon)
         {
-            ScenarioContext.Current.Pending();
+            shoutyApi.SetLocation(name, new Location(lat, lon));
         }
-
 
         [Given(@"Linda is (.*)m away from Fred")]
         public void GivenLindaIsMAwayFromFred(int distanceInMetres)
         {
-            shoutyApi.SetLocation("Fred", 0);
-            shoutyApi.SetLocation("Linda", distanceInMetres);
+            shoutyApi.SetLocation("Fred", new Location(0, 0));
+            shoutyApi.SetLocation("Linda", new Location(0, distanceInMetres));
         }
 
         [When(@"Fred shouts")]

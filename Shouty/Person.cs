@@ -7,7 +7,7 @@ namespace Shouty
         private readonly List<string> messagesHeard = new List<string>();
 
         public string Name { get; private set; }
-        public int Location { get; private set; }
+        public Location Location { get; private set; }
         public IEnumerable<string> MessagesHeard => messagesHeard;
 
         public Person(string name)
@@ -15,7 +15,7 @@ namespace Shouty
             Name = name;
         }
 
-        public void SetLocation(int location)
+        public void SetLocation(Location location)
         {
             Location = location;
         }

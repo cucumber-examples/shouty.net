@@ -21,7 +21,7 @@ namespace Shouty
             return person;
         }
 
-        public void SetLocation(string name, int position)
+        public void SetLocation(string name, Location position)
         {
             GetOrCreatePerson(name).SetLocation(position);
         }
@@ -32,7 +32,7 @@ namespace Shouty
 
             foreach (var person in personsByName.Values)
             {
-                if (Math.Abs(person.Location - shouter.Location) <= 1000)
+                if (person.Location.GetDistanceFrom(shouter.Location) <= 1000)
                     person.Hear(message);
             }
         }
