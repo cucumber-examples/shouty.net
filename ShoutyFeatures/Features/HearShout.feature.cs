@@ -38,7 +38,8 @@ namespace ShoutyFeatures.Features
  
 Questions:
 	- what happens if the listener arrives 5 minutes after a shout?
-	- what happens in two dimensions?", ProgrammingLanguage.CSharp, ((string[])(null)));
+	- what happens in two dimensions?", ProgrammingLanguage.CSharp, new string[] {
+                        "web"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -78,20 +79,21 @@ Questions:
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Out of range shout is not heard")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear shout")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("web")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("done")]
         public virtual void OutOfRangeShoutIsNotHeard()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Out of range shout is not heard", new string[] {
                         "done"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
 #line 15
-    testRunner.Given("Linda is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 16
-    testRunner.And("Fred is at [0, 1100]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("Linda is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 17
- testRunner.When("Fred shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.And("Fred is at [0, 1100]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
+ testRunner.When("Fred shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
  testRunner.Then("Linda should hear nothing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -100,20 +102,21 @@ this.ScenarioSetup(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("In range shout is heard")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear shout")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("web")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("done")]
         public virtual void InRangeShoutIsHeard()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("In range shout is heard", new string[] {
                         "done"});
-#line 21
-this.ScenarioSetup(scenarioInfo);
 #line 22
-    testRunner.Given("Linda is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 23
-    testRunner.And("Fred is at [0, 800]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("Linda is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 24
- testRunner.When("Fred shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.And("Fred is at [0, 800]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25
+ testRunner.When("Fred shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 26
  testRunner.Then("Linda should hear Fred’s shout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

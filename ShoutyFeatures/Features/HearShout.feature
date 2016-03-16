@@ -1,4 +1,5 @@
-﻿Feature: Hear shout
+﻿@web
+Feature: Hear shout
 
 Rules:
 	- if the shouter is within 1km of the listener, the listener hears the shout
