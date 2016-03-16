@@ -15,5 +15,10 @@ namespace Shouty
         public void Shout(string name, string message)
         {
         }
+
+        public List<string> GetMessages(string name)
+        {
+            return new List<string>();
+        }
     }
 }

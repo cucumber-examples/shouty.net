@@ -1,6 +1,6 @@
 ﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
-using NUnit.Framework;
 using Shouty;
 
 namespace ShoutyFeatures
@@ -26,7 +26,8 @@ namespace ShoutyFeatures
         [Then(@"Linda should hear nothing")]
         public void ThenLindaShouldHearNothing()
         {
-            ScenarioContext.Current.Pending();
+            var messages = shoutyApi.GetMessages("Linda");
+            Assert.AreEqual(0, messages.Count, "Should hear nothing");
         }
     }
 }
