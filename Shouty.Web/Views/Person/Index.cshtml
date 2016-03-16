@@ -12,3 +12,12 @@
     <dt>Heard messages</dt>
     <dd>@string.Join("<br/>", Model.MessagesHeard)</dd>
 </dl>
+
+<h3>Set Location</h3>
+@using (Html.BeginForm("SetLocation", "Person", FormMethod.Post))
+{
+    <input type="hidden" name="id" value="@Model.Name"/>
+    <label for="lat">Lat:</label><input type="number" name="lat" id="lat"/><br/>
+    <label for="lon">Lon:</label><input type="number" name="lon" id="lon"/><br/>
+    <input type="submit"/>
+}

@@ -16,5 +16,14 @@ namespace Shouty.Web.Controllers
 
             return View(person);
         }
+
+        [HttpPost]
+        public ActionResult SetLocation(string id, double lat, double lon)
+        {
+            var location = new Location(lat, lon);
+            shoutyApi.SetLocation(id, location);
+
+            return RedirectToAction("Index", new { id });
+        }
     }
 }
