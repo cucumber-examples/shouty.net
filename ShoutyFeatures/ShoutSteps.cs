@@ -11,7 +11,9 @@ namespace ShoutyFeatures
         [Given(@"Linda is (.*)m away from Fred")]
         public void GivenLindaIsMAwayFromFred(int distanceInMetres)
         {
-            ScenarioContext.Current.Pending();
+            var shoutyApi = new ShoutyApi();
+            shoutyApi.SetLocation("Fred", 0);
+            shoutyApi.SetLocation("Linda", distanceInMetres);
         }
 
         [When(@"Fred shouts")]

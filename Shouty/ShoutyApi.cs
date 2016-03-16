@@ -8,6 +8,8 @@ namespace Shouty
 {
     public class ShoutyApi
     {
-        // This is where we'll write the code of our Shouty app
+        public void SetLocation(string name, int position)
+        {
+        }
     }
 }
