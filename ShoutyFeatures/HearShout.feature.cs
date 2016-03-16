@@ -30,7 +30,15 @@ namespace ShoutyFeatures
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Hear shout", "A Description goes here", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Hear shout", @"Rules:
+	- if the shouter is within 1km of the listener, the listener hears the shout
+	- if the shouter is more than 1km away from the listener, the listener doesn’t hear the shout
+	- the message can’t be empty
+	- the message must be shorter than 140 characters
+ 
+Questions:
+	- what happens if the listener arrives 5 minutes after a shout?
+	- what happens in two dimensions?", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -68,13 +76,19 @@ namespace ShoutyFeatures
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("What should it do?")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Out of range shout is not heard")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear shout")]
-        public virtual void WhatShouldItDo()
+        public virtual void OutOfRangeShoutIsNotHeard()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("What should it do?", ((string[])(null)));
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Out of range shout is not heard", ((string[])(null)));
+#line 13
 this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given("Linda is 1100m away from Fred", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
+ testRunner.When("Fred shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.Then("Linda should hear nothing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
