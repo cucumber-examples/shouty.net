@@ -56,7 +56,8 @@ namespace ShoutyFeatures.StepDefinitions
         [Then(@"Linda should hear Fred’s shout")]
         public void ThenLindaShouldHearFredSShout()
         {
-            ScenarioContext.Current.Pending();
+            var messages = GetHeardMessages("Linda");
+            CollectionAssert.Contains(messages, "hello world!", "should hear the message");
         }
 
         private List<string> GetHeardMessages(string name)
