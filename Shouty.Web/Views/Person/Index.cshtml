@@ -1,0 +1,14 @@
+﻿@model Shouty.Person
+
+@{
+    ViewBag.Title = "Person: " + Model.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<dl>
+    <dt>Location</dt>
+    <dd>@Model.Location</dd>
+    <dt>Heard messages</dt>
+    <dd>@string.Join("<br/>", Model.MessagesHeard)</dd>
+</dl>

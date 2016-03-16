@@ -21,6 +21,11 @@ namespace Shouty
             return person;
         }
 
+        public Person GetPerson(string name)
+        {
+            return GetOrCreatePerson(name);
+        }
+
         public void SetLocation(string name, Location position)
         {
             GetOrCreatePerson(name).SetLocation(position);
