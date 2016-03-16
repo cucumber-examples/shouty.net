@@ -100,11 +100,11 @@ this.ScenarioSetup(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("In range shout is heard")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear shout")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("wip")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("done")]
         public virtual void InRangeShoutIsHeard()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("In range shout is heard", new string[] {
-                        "wip"});
+                        "done"});
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 22

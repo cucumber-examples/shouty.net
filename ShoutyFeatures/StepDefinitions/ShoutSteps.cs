@@ -10,10 +10,10 @@ namespace ShoutyFeatures
     {
         private readonly ShoutyApi shoutyApi = new ShoutyApi();
 
-        [Given(@"(.*) is at \[(.*), (.*)]")]
-        public void GivenPersonIsAt(string name, double lat, double lon)
+        [Given(@"(.*) is at (.*)")]
+        public void GivenPersonIsAt(string name, Location location)
         {
-            shoutyApi.SetLocation(name, new Location(lat, lon));
+            shoutyApi.SetLocation(name, location);
         }
 
         [Given(@"Linda is (.*)m away from Fred")]
