@@ -9,18 +9,11 @@ namespace ShoutyFeatures
     [Binding]
     public class ShoutSteps
     {
-        private IShoutyApi shoutyApi = new ShoutyApi();
+        private readonly IShoutyApi shoutyApi;
 
-        [BeforeScenario("web")]
-        public void SetWebApi()
+        public ShoutSteps(IShoutyApi shoutyApi)
         {
-            shoutyApi = new ShoutyWebDriver();
-        }
-
-        [AfterScenario]
-        public void DisposeApi()
-        {
-            shoutyApi.Dispose();
+            this.shoutyApi = shoutyApi;
         }
 
         [Given(@"(.*) is at (.*)")]
