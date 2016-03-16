@@ -33,7 +33,8 @@ namespace ShoutyFeatures
         [Then(@"Linda should hear Fred’s shout")]
         public void ThenLindaShouldHearFredSShout()
         {
-            ScenarioContext.Current.Pending();
+            var messages = shoutyApi.GetMessages("Linda");
+            CollectionAssert.Contains(messages, "hello world!", "should hear the message");
         }
     }
 }
