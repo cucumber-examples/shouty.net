@@ -11,5 +11,9 @@ namespace Shouty
         public void SetLocation(string name, int position)
         {
         }
+
+        public void Shout(string name, string message)
+        {
+        }
     }
 }

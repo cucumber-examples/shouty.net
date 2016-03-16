@@ -8,10 +8,11 @@ namespace ShoutyFeatures
     [Binding]
     public class ShoutSteps
     {
+        private readonly ShoutyApi shoutyApi = new ShoutyApi();
+
         [Given(@"Linda is (.*)m away from Fred")]
         public void GivenLindaIsMAwayFromFred(int distanceInMetres)
         {
-            var shoutyApi = new ShoutyApi();
             shoutyApi.SetLocation("Fred", 0);
             shoutyApi.SetLocation("Linda", distanceInMetres);
         }
@@ -19,7 +20,7 @@ namespace ShoutyFeatures
         [When(@"Fred shouts")]
         public void WhenFredShouts()
         {
-            ScenarioContext.Current.Pending();
+            shoutyApi.Shout("Fred", "hello world!");
         }
 
         [Then(@"Linda should hear nothing")]
