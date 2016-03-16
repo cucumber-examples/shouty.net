@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shouty
 {
-    public class Shouty
+    public class ShoutyApi
     {
         // This is where we'll write the code of our Shouty app
     }
