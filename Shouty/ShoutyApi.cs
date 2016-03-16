@@ -28,9 +28,12 @@ namespace Shouty
 
         public void Shout(string name, string message)
         {
+            var shouter = GetOrCreatePerson(name);
+
             foreach (var person in personsByName.Values)
             {
-                person.Hear(message);
+                if (Math.Abs(person.Location - shouter.Location) <= 1000)
+                    person.Hear(message);
             }
         }
 
