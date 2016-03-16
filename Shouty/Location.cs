@@ -19,7 +19,7 @@ namespace Shouty
 
         public double GetDistanceFrom(Location other)
         {
-            throw new NotImplementedException();
+            return other.Lat - this.Lat;
         }
     }
 }
