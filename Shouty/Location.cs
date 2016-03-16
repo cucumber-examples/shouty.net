@@ -19,7 +19,7 @@ namespace Shouty
 
         public double GetDistanceFrom(Location other)
         {
-            return Math.Abs(other.Lat - this.Lat) + Math.Abs(other.Lon - this.Lon);
+            return Math.Sqrt(Math.Pow(other.Lat - this.Lat, 2) + Math.Pow(other.Lon - this.Lon, 2));
         }
     }
 }
