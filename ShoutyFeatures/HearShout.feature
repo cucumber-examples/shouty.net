@@ -10,12 +10,13 @@ Questions:
 	- what happens if the listener arrives 5 minutes after a shout?
 	- what happens in two dimensions?
 
+@done
 Scenario: Out of range shout is not heard
 	Given Linda is 1100m away from Fred
 	When Fred shouts
 	Then Linda should hear nothing
 
-@wip
+@done
 Scenario: In range shout is heard
 	Given Linda is 800m away from Fred
 	When Fred shouts
