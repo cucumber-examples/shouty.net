@@ -15,6 +15,7 @@ Scenario: Out of range shout is not heard
 	When Fred shouts
 	Then Linda should hear nothing
 
+@wip
 Scenario: In range shout is heard
 	Given Linda is 800m away from Fred
 	When Fred shouts
