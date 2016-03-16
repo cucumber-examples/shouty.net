@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.UnitTests", "Shouty.UnitTests\Shouty.UnitTests.csproj", "{720BD060-53A4-4B3F-B8E3-7E64DB296F9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Web", "Shouty.Web\Shouty.Web.csproj", "{70F8C72C-A99E-4225-8CC9-7A80DC353992}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{720BD060-53A4-4B3F-B8E3-7E64DB296F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{720BD060-53A4-4B3F-B8E3-7E64DB296F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{720BD060-53A4-4B3F-B8E3-7E64DB296F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F8C72C-A99E-4225-8CC9-7A80DC353992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F8C72C-A99E-4225-8CC9-7A80DC353992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F8C72C-A99E-4225-8CC9-7A80DC353992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F8C72C-A99E-4225-8CC9-7A80DC353992}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
