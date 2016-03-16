@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shouty
 {
-    public class ShoutyApi
+    public class ShoutyApi : IShoutyApi
     {
         private readonly Dictionary<string, Person> personsByName = new Dictionary<string, Person>();
 
@@ -45,6 +45,11 @@ namespace Shouty
         public List<string> GetMessages(string name)
         {
             return GetOrCreatePerson(name).MessagesHeard.ToList();
+        }
+
+        public void Dispose()
+        {
+            //nop
         }
     }
 }

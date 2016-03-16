@@ -74,6 +74,7 @@
       <DependentUpon>HearShout.feature</DependentUpon>
     </Compile>
     <Compile Include="StepDefinitions\ShoutSteps.cs" />
+    <Compile Include="StepDefinitions\ShoutyWebDriver.cs" />
     <Compile Include="StepDefinitions\WebSteps.cs" />
     <Compile Include="Support\Conversions.cs" />
   </ItemGroup>

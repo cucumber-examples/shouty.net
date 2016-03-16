@@ -2,13 +2,26 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 using Shouty;
+using ShoutyFeatures.StepDefinitions;
 
 namespace ShoutyFeatures
 {
     [Binding]
     public class ShoutSteps
     {
-        private readonly ShoutyApi shoutyApi = new ShoutyApi();
+        private IShoutyApi shoutyApi = new ShoutyApi();
+
+        [BeforeScenario("web")]
+        public void SetWebApi()
+        {
+            shoutyApi = new ShoutyWebDriver();
+        }
+
+        [AfterScenario]
+        public void DisposeApi()
+        {
+            shoutyApi.Dispose();
+        }
 
         [Given(@"(.*) is at (.*)")]
         public void GivenPersonIsAt(string name, Location location)
