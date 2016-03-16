@@ -10,6 +10,13 @@ namespace ShoutyFeatures
     {
         private readonly ShoutyApi shoutyApi = new ShoutyApi();
 
+        [Given(@"(.*) is at \[(.*), (.*)]")]
+        public void GivenLindaIsAt(string name, double lat, double lon)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
         [Given(@"Linda is (.*)m away from Fred")]
         public void GivenLindaIsMAwayFromFred(int distanceInMetres)
         {

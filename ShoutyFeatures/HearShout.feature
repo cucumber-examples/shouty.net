@@ -12,12 +12,14 @@ Questions:
 
 @done
 Scenario: Out of range shout is not heard
-	Given Linda is 1100m away from Fred
+    Given Linda is at [0, 0]
+    And Fred is at [0, 1100]
 	When Fred shouts
 	Then Linda should hear nothing
 
-@done
+@wip
 Scenario: In range shout is heard
-	Given Linda is 800m away from Fred
+    Given Linda is at [0, 0]
+    And Fred is at [0, 800]
 	When Fred shouts
 	Then Linda should hear Fred’s shout
