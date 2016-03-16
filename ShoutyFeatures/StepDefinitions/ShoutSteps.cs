@@ -5,7 +5,7 @@ using Shouty;
 
 namespace ShoutyFeatures
 {
-    //[Binding]
+    [Binding]
     public class ShoutSteps
     {
         private readonly ShoutyApi shoutyApi = new ShoutyApi();

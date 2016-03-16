@@ -8,11 +8,11 @@ namespace Shouty.Web.Controllers
 {
     public class PersonController : Controller
     {
-        public static ShoutyApi shoutyApi = new ShoutyApi();
+        public static ShoutyApi ShoutyApi = new ShoutyApi();
         
         public ActionResult Index(string id)
         {
-            var person = shoutyApi.GetPerson(id);
+            var person = ShoutyApi.GetPerson(id);
 
             return View(person);
         }
@@ -21,7 +21,7 @@ namespace Shouty.Web.Controllers
         public ActionResult SetLocation(string id, double lat, double lon)
         {
             var location = new Location(lat, lon);
-            shoutyApi.SetLocation(id, location);
+            ShoutyApi.SetLocation(id, location);
 
             return RedirectToAction("Index", new { id });
         }
@@ -29,7 +29,7 @@ namespace Shouty.Web.Controllers
         [HttpPost]
         public ActionResult Shout(string id, string message)
         {
-            shoutyApi.Shout(id, message);
+            ShoutyApi.Shout(id, message);
 
             return RedirectToAction("Index", new { id });
         }

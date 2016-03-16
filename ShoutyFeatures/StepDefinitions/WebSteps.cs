@@ -67,6 +67,12 @@ namespace ShoutyFeatures.StepDefinitions
             return messages;
         }
 
+        [BeforeScenario]
+        public void ResetApp()
+        {
+            webDriver.Navigate().GoToUrl(baseUrl + "/api/TestReset");
+        }
+
         [AfterScenario]
         public void CloseBrowser()
         {
