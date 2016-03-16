@@ -27,5 +27,17 @@ namespace Shouty.UnitTests
 
             Assert.AreEqual(disctance, 10);
         }
+
+        [Test]
+        public void DistanceShouldBeTheDifferenceOfLonIfLatIsTheSame()
+        {
+            var loc1 = new Location(0, 0);
+            var loc2 = new Location(0, 10);
+
+            var disctance = loc1.GetDistanceFrom(loc2);
+
+            Assert.AreEqual(disctance, 10);
+        }
+
     }
 }
