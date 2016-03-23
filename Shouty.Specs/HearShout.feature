@@ -13,3 +13,9 @@ Scenario: Receiver is within range
 	When Mary shouts "Free vlaai!!!"
 	Then Joe should receive "Free vlaai!!!"
 
+@wip
+Scenario: Receiver is out of range
+	Given Joe is 1100m away from Mary
+	When Mary shouts "Free vlaai!!!"
+	Then Joe should not receive "Free vlaai!!!"
+

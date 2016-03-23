@@ -27,5 +27,12 @@ namespace Shouty.Specs
             var actualShouts = shoutyApi.GetReceivedShouts();
             CollectionAssert.Contains(actualShouts, expectedShout);
         }
+
+        [Then(@"Joe should not receive ""(.*)""")]
+        public void ThenJoeShouldNotReceive(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }
