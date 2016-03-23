@@ -18,7 +18,7 @@ namespace Shouty.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class HearShoutFeature
+    public partial class ShoutAndReceiveAShoutFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,7 +30,9 @@ namespace Shouty.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Hear shout", "A Description goes here", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Shout and receive a shout", "As a user of Shouty\r\nI want to shout a message to the users near to me\r\nSo that I" +
+                    " can share some important local information\r\n\r\nRules:\r\n- Shout can be heard with" +
+                    "in 1000m\r\n- The shout should be less than 2000 letters", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -45,9 +47,9 @@ namespace Shouty.Specs
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Hear shout")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Shout and receive a shout")))
             {
-                Shouty.Specs.HearShoutFeature.FeatureSetup(null);
+                Shouty.Specs.ShoutAndReceiveAShoutFeature.FeatureSetup(null);
             }
         }
         
@@ -68,13 +70,19 @@ namespace Shouty.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("What should it do?")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear shout")]
-        public virtual void WhatShouldItDo()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Receiver is within range")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Shout and receive a shout")]
+        public virtual void ReceiverIsWithinRange()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("What should it do?", ((string[])(null)));
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Receiver is within range", ((string[])(null)));
+#line 11
 this.ScenarioSetup(scenarioInfo);
+#line 12
+ testRunner.Given("Joe is 580m away from Mary", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
+ testRunner.When("Mary shouts \"Free vlaai!!!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.Then("Joe should receive \"Free vlaai!!!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

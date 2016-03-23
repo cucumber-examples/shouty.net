@@ -1,5 +1,15 @@
-﻿Feature: Hear shout
+﻿Feature: Shout and receive a shout
 
-A Description goes here
+As a user of Shouty
+I want to shout a message to the users near to me
+So that I can share some important local information
+
+Rules:
+- Shout can be heard within 1000m
+- The shout should be less than 2000 letters
 	
-Scenario: What should it do?
+Scenario: Receiver is within range
+	Given Joe is 580m away from Mary
+	When Mary shouts "Free vlaai!!!"
+	Then Joe should receive "Free vlaai!!!"
+

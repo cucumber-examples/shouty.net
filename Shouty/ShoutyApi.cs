@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Shouty
 {
     public class ShoutyApi
     {
-        // This is where we'll write the code of our Shouty app
+        private readonly List<string> shouts = new List<string>(); 
+
+        public void Shout(string shout)
+        {
+            shouts.Add(shout);
+        }
+
+        public List<string> GetReceivedShouts()
+        {
+            return shouts;
+        }
     }
 }
