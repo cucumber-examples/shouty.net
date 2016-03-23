@@ -1,19 +1,44 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Shouty
 {
     public class ShoutyApi
     {
-        private readonly List<string> shouts = new List<string>(); 
+        private readonly Dictionary<string, Person> persons = new Dictionary<string, Person>();
 
-        public void Shout(string shout)
+        public void SetLocation(string name, int location)
         {
-            shouts.Add(shout);
+            var person = GetOrCreate(name);
+            person.Location = location;
         }
 
-        public List<string> GetReceivedShouts()
+        private Person GetOrCreate(string name)
         {
-            return shouts;
+            Person result;
+            if (!persons.TryGetValue(name, out result))
+            {
+                result = new Person(name);
+                persons.Add(name, result);
+            }
+            return result;
+        }
+
+        public void Shout(string name, string shout)
+        {
+            var shoutee = GetOrCreate(name);
+            foreach (var person in persons.Values)
+            {
+                if (Math.Abs(shoutee.Location - person.Location) < 1000)
+                    person.Receive(shout);
+            }
+        }
+
+        public List<string> GetReceivedShouts(string name)
+        {
+            var person = GetOrCreate(name);
+            return person.ReceivedSouts;
         }
     }
 }

@@ -7,31 +7,33 @@ namespace Shouty.Specs
     [Binding]
     public class ShoutSteps
     {
-        private ShoutyApi shoutyApi;
+        private readonly ShoutyApi shoutyApi = new ShoutyApi();
 
         [Given(@"Joe is (.*)m away from Mary")]
-        public void GivenJoeIsMAwayFromMary(int p0)
+        public void GivenJoeIsMAwayFromMary(int distance)
         {
+            shoutyApi.SetLocation("Joe", 0);
+            shoutyApi.SetLocation("Mary", distance);
         }
 
         [When(@"Mary shouts ""(.*)""")]
         public void WhenMaryShouts(string shout)
         {
-            shoutyApi = new ShoutyApi();
-            shoutyApi.Shout(shout);
+            shoutyApi.Shout("Mary", shout);
         }
 
         [Then(@"Joe should receive ""(.*)""")]
         public void ThenJoeShouldReceive(string expectedShout)
         {
-            var actualShouts = shoutyApi.GetReceivedShouts();
+            var actualShouts = shoutyApi.GetReceivedShouts("Joe");
             CollectionAssert.Contains(actualShouts, expectedShout);
         }
 
         [Then(@"Joe should not receive ""(.*)""")]
-        public void ThenJoeShouldNotReceive(string p0)
+        public void ThenJoeShouldNotReceive(string expectedShout)
         {
-            ScenarioContext.Current.Pending();
+            var actualShouts = shoutyApi.GetReceivedShouts("Joe");
+            CollectionAssert.DoesNotContain(actualShouts, expectedShout);
         }
 
     }
