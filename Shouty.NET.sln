@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Specs", "Shouty.Specs\Shouty.Specs.csproj", "{494245D6-C86B-4E14-A23E-D8DBFF374EAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Tests", "Shouty.Tests\Shouty.Tests.csproj", "{1622449F-50ED-4E1E-A8CE-7E6AD792275F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{494245D6-C86B-4E14-A23E-D8DBFF374EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{494245D6-C86B-4E14-A23E-D8DBFF374EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{494245D6-C86B-4E14-A23E-D8DBFF374EAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1622449F-50ED-4E1E-A8CE-7E6AD792275F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1622449F-50ED-4E1E-A8CE-7E6AD792275F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1622449F-50ED-4E1E-A8CE-7E6AD792275F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1622449F-50ED-4E1E-A8CE-7E6AD792275F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

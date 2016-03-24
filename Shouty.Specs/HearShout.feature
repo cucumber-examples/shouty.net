@@ -19,3 +19,8 @@ Scenario: Receiver is out of range
 	When Mary shouts "Free vlaai!!!"
 	Then Joe should not receive "Free vlaai!!!"
 
+#Scenario: Bug 1234
+#	Given Joe is at 1100
+#	And Mary is at 0
+#	When Mary shouts "Free vlaai!!!"
+#	Then Joe should not receive "Free vlaai!!!"

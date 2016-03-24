@@ -12,9 +12,16 @@ namespace Shouty.Specs
         [Given(@"Joe is (.*)m away from Mary")]
         public void GivenJoeIsMAwayFromMary(int distance)
         {
-            shoutyApi.SetLocation("Joe", 0);
-            shoutyApi.SetLocation("Mary", distance);
+            shoutyApi.SetLocation("Joe", new Location2D(0, 0));
+            shoutyApi.SetLocation("Mary", new Location2D(distance, 0));
         }
+
+        [Given(@"(.*) is at (.*)")]
+        public void GivenSomeoneIsAt(string name,  int position)
+        {
+            shoutyApi.SetLocation(name, new Location2D(position, 0)); 
+        }
+
 
         [When(@"Mary shouts ""(.*)""")]
         public void WhenMaryShouts(string shout)

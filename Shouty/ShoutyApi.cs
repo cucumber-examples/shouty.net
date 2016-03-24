@@ -8,7 +8,7 @@ namespace Shouty
     {
         private readonly Dictionary<string, Person> persons = new Dictionary<string, Person>();
 
-        public void SetLocation(string name, int location)
+        public void SetLocation(string name, Location2D location)
         {
             var person = GetOrCreate(name);
             person.Location = location;
@@ -30,7 +30,7 @@ namespace Shouty
             var shoutee = GetOrCreate(name);
             foreach (var person in persons.Values)
             {
-                if (Math.Abs(shoutee.Location - person.Location) < 1000)
+                if (shoutee.Location.DistanceTo(person.Location) < 1000)
                     person.Receive(shout);
             }
         }

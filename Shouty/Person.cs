@@ -5,7 +5,7 @@ namespace Shouty
     public class Person
     {
         public string Name { get; set; }
-        public int Location { get; set; }
+        public Location2D Location { get; set; }
         public List<string> ReceivedSouts { get; private set; } 
 
         public Person(string name)
