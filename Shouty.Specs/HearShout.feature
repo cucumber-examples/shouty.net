@@ -18,9 +18,3 @@ Scenario: Receiver is out of range
 	Given Joe is 1100m away from Mary
 	When Mary shouts "Free vlaai!!!"
 	Then Joe should not receive "Free vlaai!!!"
-
-#Scenario: Bug 1234
-#	Given Joe is at 1100
-#	And Mary is at 0
-#	When Mary shouts "Free vlaai!!!"
-#	Then Joe should not receive "Free vlaai!!!"
