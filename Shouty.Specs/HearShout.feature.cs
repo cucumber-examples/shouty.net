@@ -30,7 +30,7 @@ namespace Shouty.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Hear shout", "A Description goes here", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Hear Shout", "  Shouts have a range of approximately 1000m", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -45,7 +45,7 @@ namespace Shouty.Specs
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Hear shout")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Hear Shout")))
             {
                 Shouty.Specs.HearShoutFeature.FeatureSetup(null);
             }
@@ -68,13 +68,41 @@ namespace Shouty.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("What should it do?")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear shout")]
-        public virtual void WhatShouldItDo()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("In range shout is heard")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear Shout")]
+        public virtual void InRangeShoutIsHeard()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("What should it do?", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("In range shout is heard", ((string[])(null)));
 #line 5
-this.ScenarioSetup(scenarioInfo);
+  this.ScenarioSetup(scenarioInfo);
+#line 6
+    testRunner.Given("Lucy is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
+    testRunner.And("Sean is at [0, 900]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 8
+    testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 9
+    testRunner.Then("Lucy should hear Sean", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Out of range shout is not heard")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear Shout")]
+        public virtual void OutOfRangeShoutIsNotHeard()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Out of range shout is not heard", ((string[])(null)));
+#line 11
+  this.ScenarioSetup(scenarioInfo);
+#line 12
+    testRunner.Given("Lucy is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
+    testRunner.And("Sean is at [0, 1100]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+    testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
+    testRunner.Then("Lucy should hear nothing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
