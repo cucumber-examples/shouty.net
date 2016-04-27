@@ -5,7 +5,7 @@ When someone shouts, only people within 100m can hear it.
 
 Shouty doesn't exist yet - you will implement it yourself!
 
-That is, if you're attending a BDD/Cucumber course.
+That is, if you're attending a BDD/SpecFlow course.
 
 ## Agenda
 
@@ -22,21 +22,15 @@ Git:
     git clone https://github.com/cucumber-ltd/shouty.net.git
     cd shouty.net
     git checkout THEBRANCH
+    
+_You can also use the [GitHub extentsion for Visual Studio](https://visualstudio.github.com/)._
 
 Subversion:
 
     svn checkout https://github.com/cucumber-ltd/shouty.net/branches/THEBRANCH shouty.net
     cd shouty.net
 
-Or simply [download](https://github.com/cucumber-ltd/shouty.net/releases) a zip or tarball.
-
-### Catch up!
-
-Throughout the day - if you want to catch up with what the trainer has pushed to this
-branch, simply do:
-
-    git reset --hard  # This blows away your local changes
-    git pull          # This updates your working copy with the latest code
+Or simply download a zip or tarball: `https://github.com/cucumber-ltd/shouty.net/archive/THEBRANCH.zip`
 
 ### Set up environment
 
@@ -46,23 +40,7 @@ branch, simply do:
 * Open Shouty.NET solution in visual studio
 * Select Test > Run > All Tests from the menu, or press `CTRL-R, A`
 
-### Brainstorm capabilities
+### Open the workbook to *Let's get started*
 
-* Who are the main stakeholders?
-* What can people do with the app?
-* What are the main differentiators from other apps?
-
-### Pick one capability
-
-* Define rules
-* Create high level examples (Friends episodes)
-
-Then do this for each example to discover more examples:
-
-* Can you think of a context where the outcome would be different?
-* Are there any other outcomes we haven't thought about?
-
-### Implement one capability. Text UI only.
-
-* Write a Cucumber Scenario for one of the examples
-* Make it pass!
+* Work in pairs
+* Ask questions of other pairs and the instructor
