@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AppDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HearShout.feature.cs">
       <AutoGen>True</AutoGen>

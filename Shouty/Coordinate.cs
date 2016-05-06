@@ -18,8 +18,7 @@ namespace Shouty
 
         public int DistanceFrom(Coordinate coordinate)
         {
-            // TODO: actually caluculate distance. I think we need to use pythagoras' theorem?
-            return 0;
+            return (int)Math.Sqrt(Math.Pow(coordinate.xCoord - xCoord, 2) + Math.Pow(coordinate.yCoord - yCoord, 2));
         }
     }
 }
