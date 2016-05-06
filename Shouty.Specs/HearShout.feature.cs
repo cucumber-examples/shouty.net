@@ -90,18 +90,20 @@ namespace Shouty.Specs
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Out of range shout is not heard")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Hear Shout")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("web")]
         public virtual void OutOfRangeShoutIsNotHeard()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Out of range shout is not heard", ((string[])(null)));
-#line 11
-  this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Out of range shout is not heard", new string[] {
+                        "web"});
 #line 12
-    testRunner.Given("Lucy is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  this.ScenarioSetup(scenarioInfo);
 #line 13
-    testRunner.And("Sean is at [0, 1100]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("Lucy is at [0, 0]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
-    testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.And("Sean is at [0, 1100]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
+    testRunner.When("Sean shouts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
     testRunner.Then("Lucy should hear nothing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

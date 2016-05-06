@@ -12,6 +12,7 @@ namespace Shouty.Specs
     public class RegisterDriver
     {
         private readonly IObjectContainer objectContainer;
+        private IAppDriver driver;
 
         public RegisterDriver(IObjectContainer objectContainer)
         {
@@ -23,15 +24,21 @@ namespace Shouty.Specs
         {
             if (ScenarioContext.Current.ScenarioInfo.Tags.Contains("web"))
             {
-                var uiDriver = new UiDriver();
-                objectContainer.RegisterInstanceAs<IAppDriver>(uiDriver);
+                driver = new UiDriver();
+                objectContainer.RegisterInstanceAs<IAppDriver>(driver);
             }
             else
             {
-                var domainDriver = new DomainDriver();
-                objectContainer.RegisterInstanceAs<IAppDriver>(domainDriver);
+                driver = new DomainDriver();
+                objectContainer.RegisterInstanceAs<IAppDriver>(driver);
             }
 
+        }
+
+        [AfterScenario]
+        public void CleanupDriver()
+        {
+            driver.cleanup();
         }
     }
 

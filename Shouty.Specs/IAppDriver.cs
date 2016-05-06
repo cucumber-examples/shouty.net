@@ -15,5 +15,7 @@ namespace Shouty.Specs
         void Shout(string name, string message);
 
         IDictionary<string, string> GetMessagesHeardBy(string name);
+
+        void cleanup();
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,11 @@ namespace Shouty.Specs
 {
     class UiDriver : IAppDriver
     {
+        private IWebDriver browser = new FirefoxDriver();
+
         public void SetLocation(string name, Coordinate coordinate)
         {
-            throw new NotImplementedException();
+            browser.Navigate().GoToUrl("http://www.google.com/");
         }
 
         public void Shout(string name, string message)
@@ -21,6 +25,12 @@ namespace Shouty.Specs
         public IDictionary<string, string> GetMessagesHeardBy(string name)
         {
             throw new NotImplementedException();
+        }
+
+
+        public void cleanup()
+        {
+            browser.Quit();
         }
     }
 }

@@ -25,5 +25,11 @@ namespace Shouty.Specs
         {
             return shouty.GetMessagesHeardBy(name);
         }
+
+
+        public void cleanup()
+        {
+            //no-op
+        }
     }
 }
