@@ -8,6 +8,13 @@ namespace Shouty.Tests
     public class CoordinateTest
     {
         [TestMethod]
+        public void ItCalculatesTheDistanceFromItself()
+        {
+            Coordinate a = new Coordinate(0, 0);
+            Assert.AreEqual(0, a.DistanceFrom(a));
+        }
+
+        [TestMethod]
         public void ItCalculatesTheDistanceFromAnotherCoordinateAlongXAxis()
         {
             Coordinate a = new Coordinate(0, 0);
