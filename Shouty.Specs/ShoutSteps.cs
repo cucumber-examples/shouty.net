@@ -11,13 +11,13 @@ namespace Shouty.Specs
         private const string ARBITRARY_MESSAGE = "Hello, world";
         private readonly ShoutyNetwork shouty = new ShoutyNetwork();
 
-        [Given(@"Lucy is at \[(.*), (.*)]")]
+        [Given(@"Lucy is at (.*), (.*)")]
         public void GivenLucyIsAt(int xCoord, int yCoord)
         {
             shouty.SetLocation("Lucy", new Coordinate(xCoord, yCoord));
         }
 
-        [Given(@"Sean is at \[(.*), (.*)]")]
+        [Given(@"Sean is at (.*), (.*)")]
         public void GivenSeanIsAt(int xCoord, int yCoord)
         {
             shouty.SetLocation("Sean", new Coordinate(xCoord, yCoord));
@@ -32,13 +32,13 @@ namespace Shouty.Specs
         [Then(@"Lucy should hear Sean")]
         public void ThenLucyShouldHearSean()
         {
-            Assert.AreEqual(1, shouty.GetMessagesHeardBy("Lucy").Count);
+            Assert.AreEqual(1, shouty.GetShoutsHeardBy("Lucy").Count);
         }
 
         [Then(@"Lucy should hear nothing")]
         public void ThenLucyShouldHearNothing()
         {
-            Assert.AreEqual(0, shouty.GetMessagesHeardBy("Lucy").Count);
+            Assert.AreEqual(0, shouty.GetShoutsHeardBy("Lucy").Count);
         }
     }
 }
