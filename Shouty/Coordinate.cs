@@ -1,4 +1,4 @@
-﻿namespace Shouty
+namespace Shouty
 {
     public class Coordinate
     {
