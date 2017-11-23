@@ -1,39 +1,67 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty", "Shouty\Shouty.csproj", "{3F0D11CD-367D-457D-969F-4B8DB74E5C9E}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty", "Shouty\Shouty.csproj", "{0CF57078-AAAA-46BD-BCA9-2691E4DCCB04}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5155B65D-A740-4B02-875B-15C3DB72C84C}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Tests", "Shouty.Tests\Shouty.Tests.csproj", "{E2C19E5E-33E6-4ED1-AE8F-8302F83072A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Specs", "Shouty.Specs\Shouty.Specs.csproj", "{494245D6-C86B-4E14-A23E-D8DBFF374EAE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Tests", "Shouty.Tests\Shouty.Tests.csproj", "{D3637063-6473-441C-8588-CB2AED3ACE11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Specs", "Shouty.Specs\Shouty.Specs.csproj", "{416ACDC7-F2AA-4CF7-887E-B8E020A75D74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3F0D11CD-367D-457D-969F-4B8DB74E5C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F0D11CD-367D-457D-969F-4B8DB74E5C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F0D11CD-367D-457D-969F-4B8DB74E5C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F0D11CD-367D-457D-969F-4B8DB74E5C9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{494245D6-C86B-4E14-A23E-D8DBFF374EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{494245D6-C86B-4E14-A23E-D8DBFF374EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{494245D6-C86B-4E14-A23E-D8DBFF374EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{494245D6-C86B-4E14-A23E-D8DBFF374EAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3637063-6473-441C-8588-CB2AED3ACE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3637063-6473-441C-8588-CB2AED3ACE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3637063-6473-441C-8588-CB2AED3ACE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3637063-6473-441C-8588-CB2AED3ACE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF57078-AAAA-46BD-BCA9-2691E4DCCB04}.Debug|x86.ActiveCfg = Debug|x86
+		{0CF57078-AAAA-46BD-BCA9-2691E4DCCB04}.Debug|x86.Build.0 = Debug|x86
+		{0CF57078-AAAA-46BD-BCA9-2691E4DCCB04}.Release|x86.ActiveCfg = Release|x86
+		{0CF57078-AAAA-46BD-BCA9-2691E4DCCB04}.Release|x86.Build.0 = Release|x86
+		{E2C19E5E-33E6-4ED1-AE8F-8302F83072A9}.Debug|x86.ActiveCfg = Debug|x86
+		{E2C19E5E-33E6-4ED1-AE8F-8302F83072A9}.Debug|x86.Build.0 = Debug|x86
+		{E2C19E5E-33E6-4ED1-AE8F-8302F83072A9}.Release|x86.ActiveCfg = Release|x86
+		{E2C19E5E-33E6-4ED1-AE8F-8302F83072A9}.Release|x86.Build.0 = Release|x86
+		{416ACDC7-F2AA-4CF7-887E-B8E020A75D74}.Debug|x86.ActiveCfg = Debug|x86
+		{416ACDC7-F2AA-4CF7-887E-B8E020A75D74}.Debug|x86.Build.0 = Debug|x86
+		{416ACDC7-F2AA-4CF7-887E-B8E020A75D74}.Release|x86.ActiveCfg = Release|x86
+		{416ACDC7-F2AA-4CF7-887E-B8E020A75D74}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.TextStylePolicy = $4
+		$4.FileWidth = 80
+		$4.TabsToSpaces = True
+		$4.EolMarker = Unix
+		$4.scope = text/plain
+		$0.TextStylePolicy = $5
+		$5.inheritsSet = null
+		$5.scope = application/config+xml
+		$0.XmlFormattingPolicy = $6
+		$6.inheritsSet = null
+		$6.scope = application/config+xml
+		$0.TextStylePolicy = $7
+		$7.scope = application/xml
+		$7.FileWidth = 80
+		$7.TabWidth = 2
+		$7.TabsToSpaces = True
+		$7.IndentWidth = 2
+		$7.EolMarker = Unix
+		$0.XmlFormattingPolicy = $8
+		$8.scope = application/xml
+		$8.DefaultFormat = $12
+		$12.ContentIndentString = "  "
+		$12.AttributesIndentString = "  "
+		$0.TextStylePolicy = $9
+		$9.inheritsSet = null
+		$9.scope = application/feature-template
+		$0.StandardHeader = $10
+		$0.VersionControlPolicy = $11
 	EndGlobalSection
 EndGlobal
