@@ -1,20 +1,18 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shouty;
+using NUnit.Framework;
 
 namespace Shouty.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class CoordinateTest
     {
-        [TestMethod]
+        [Test]
         public void ItCalculatesTheDistanceFromItself()
         {
             Coordinate a = new Coordinate(0, 0);
             Assert.AreEqual(0, a.DistanceFrom(a));
         }
 
-        [TestMethod]
+        [Test]
         public void ItCalculatesTheDistanceFromAnotherCoordinateAlongXAxis()
         {
             Coordinate a = new Coordinate(0, 0);

@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
-using Shouty;
+using NUnit.Framework;
 
 namespace Shouty.Specs
 {
