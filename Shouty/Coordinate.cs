@@ -14,7 +14,7 @@ namespace Shouty
         public int DistanceFrom(Coordinate coordinate)
         {
             // TODO: actually calculate distance beteen the coordinates.
-            //       e.g. return Math.Abs(xCoord - other.xCoord);
+            //       e.g. return Math.Abs(xCoord - coordinate.xCoord);
 
             return 0;
         }
