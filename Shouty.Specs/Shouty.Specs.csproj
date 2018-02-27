@@ -28,6 +28,7 @@
       <LastGenOutput>HearShout.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="cucumberpro.yml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ShoutSteps.cs" />
@@ -45,6 +46,12 @@
     <Reference Include="System" />
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.2.2.1\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>..\packages\YamlDotNet.4.3.0\lib\net45\YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Cucumber.Pro.SpecFlowPlugin">
+      <HintPath>..\packages\Cucumber.Pro.SpecFlowPlugin.1.0.0-pre20180227a\lib\net45\Cucumber.Pro.SpecFlowPlugin.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
