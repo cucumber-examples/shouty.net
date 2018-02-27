@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty", "Shouty\Shouty.csproj", "{0CF57078-AAAA-46BD-BCA9-2691E4DCCB04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Tests", "Shouty.Tests\Shouty.Tests.csproj", "{E2C19E5E-33E6-4ED1-AE8F-8302F83072A9}"
@@ -9,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shouty.Specs", "Shouty.Spec
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
@@ -28,39 +27,40 @@ Global
 		{416ACDC7-F2AA-4CF7-887E-B8E020A75D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{416ACDC7-F2AA-4CF7-887E-B8E020A75D74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61A9FCB2-EB75-4EBF-9989-95B7578EBDFA}
+	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
-		$0.TextStylePolicy = $2
+		$0.TextStylePolicy = $9
 		$2.inheritsSet = null
 		$2.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $3
 		$3.scope = text/x-csharp
-		$0.TextStylePolicy = $4
 		$4.FileWidth = 80
 		$4.TabsToSpaces = True
 		$4.EolMarker = Unix
 		$4.scope = text/plain
-		$0.TextStylePolicy = $5
 		$5.inheritsSet = null
 		$5.scope = application/config+xml
-		$0.XmlFormattingPolicy = $6
+		$0.XmlFormattingPolicy = $8
 		$6.inheritsSet = null
 		$6.scope = application/config+xml
-		$0.TextStylePolicy = $7
 		$7.scope = application/xml
 		$7.FileWidth = 80
 		$7.TabWidth = 2
 		$7.TabsToSpaces = True
 		$7.IndentWidth = 2
 		$7.EolMarker = Unix
-		$0.XmlFormattingPolicy = $8
 		$8.scope = application/xml
 		$8.DefaultFormat = $12
 		$12.ContentIndentString = "  "
 		$12.AttributesIndentString = "  "
-		$0.TextStylePolicy = $9
 		$9.inheritsSet = null
 		$9.scope = application/feature-template
 		$0.StandardHeader = $10
