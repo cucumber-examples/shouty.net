@@ -1,3 +1,5 @@
+using System;
+
 namespace Shouty
 {
     public class Coordinate
@@ -11,10 +13,10 @@ namespace Shouty
             this.yCoord = yCoord;
         }
 
-        public int DistanceFrom(Coordinate coordinate)
+        public int DistanceFrom(Coordinate other)
         {
-            // TODO: actually calculate distance beteen the coordinates.
-            //       e.g. return Math.Abs(xCoord - coordinate.xCoord);
+            // TODO: actually calculate distance between the coordinates.
+            //       e.g. return Math.Abs(xCoord - other.xCoord);
 
             return 0;
         }
