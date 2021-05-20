@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Shouty.Specs
 {
     [Binding]
-    public class ShoutSteps
+    public class ShoutStepDefinitions
     {
         private const string ARBITRARY_MESSAGE = "Hello, world";
         private readonly ShoutyNetwork shouty = new ShoutyNetwork();
