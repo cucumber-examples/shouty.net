@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace Shouty.Specs
 {
@@ -15,16 +13,10 @@ namespace Shouty.Specs
             this.shoutyContext = shoutyContext;
         }
 
-        [StepArgumentTransformation]
-        public PersonLocation[] ConvertPersonLocations(Table personLocationsTable)
+        [Given(@"{word} is at {Coordinate}")]
+        public void GivenPersonIsAt(string name, Coordinate coordinate)
         {
-            return personLocationsTable.CreateSet<PersonLocation>().ToArray();
-        }
-
-        [Given(@"{word} is at {int}, {int}")]
-        public void GivenPersonIsAt(string name, int xCoord, int yCoord)
-        {
-            shoutyContext.Shouty.SetLocation(name, new Coordinate(xCoord, yCoord));
+            shoutyContext.Shouty.SetLocation(name, coordinate);
         }
 
         [Given("people are located at")]
