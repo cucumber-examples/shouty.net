@@ -24,13 +24,13 @@ namespace Shouty.Specs
         [When("Oscar shouts")]
         public void WhenOscarShouts()
         {
-            throw new PendingStepException();
+            shouty.Shout("Oscar", ARBITRARY_MESSAGE);
         }
 
         [Then("Lucy should not hear Oscar")]
         public void ThenLucyShouldNotHearOscar()
         {
-            throw new PendingStepException();
+            Assert.IsFalse(shouty.GetShoutsHeardBy("Lucy").ContainsKey("Oscar"));
         }
 
         [Then(@"Lucy should hear Sean")]
