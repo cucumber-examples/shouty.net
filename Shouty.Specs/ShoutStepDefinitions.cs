@@ -15,6 +15,19 @@ namespace Shouty.Specs
             shouty.SetLocation(name, new Coordinate(xCoord, yCoord));
         }
 
+        [Given("people are located at")]
+        public void GivenPeopleAreLocatedAt(Table personLocations)
+        {
+            foreach (var row in personLocations.Rows)
+            {
+                shouty.SetLocation(
+                    row["name"],
+                    new Coordinate(
+                        int.Parse(row["x"]),
+                        int.Parse(row["y"])));
+            }
+        }
+
         [When(@"{word} shouts")]
         public void WhenPersonShouts(string name)
         {
