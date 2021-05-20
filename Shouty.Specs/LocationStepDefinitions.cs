@@ -8,7 +8,12 @@ namespace Shouty.Specs
     [Binding]
     public class LocationStepDefinitions
     {
-        private readonly ShoutyNetwork shouty = new ShoutyNetwork();
+        private readonly ShoutyNetwork shouty;
+
+        public LocationStepDefinitions(ShoutyNetwork shouty)
+        {
+            this.shouty = shouty;
+        }
 
         [StepArgumentTransformation]
         public PersonLocation[] ConvertPersonLocations(Table personLocationsTable)

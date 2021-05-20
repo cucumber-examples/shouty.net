@@ -7,7 +7,12 @@ namespace Shouty.Specs
     public class ShoutStepDefinitions
     {
         private const string ARBITRARY_MESSAGE = "Hello, world";
-        private readonly ShoutyNetwork shouty = new ShoutyNetwork();
+        private readonly ShoutyNetwork shouty;
+
+        public ShoutStepDefinitions(ShoutyNetwork shouty)
+        {
+            this.shouty = shouty;
+        }
 
         [When(@"{word} shouts")]
         public void WhenPersonShouts(string name)
