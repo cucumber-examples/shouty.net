@@ -9,13 +9,13 @@ namespace Shouty.Specs
         private const string ARBITRARY_MESSAGE = "Hello, world";
         private readonly ShoutyNetwork shouty = new ShoutyNetwork();
 
-        [Given(@"Lucy is at (.*), (.*)")]
+        [Given(@"Lucy is at {int}, {int}")]
         public void GivenLucyIsAt(int xCoord, int yCoord)
         {
             shouty.SetLocation("Lucy", new Coordinate(xCoord, yCoord));
         }
 
-        [Given(@"Sean is at (.*), (.*)")]
+        [Given(@"Sean is at {int}, {int}")]
         public void GivenSeanIsAt(int xCoord, int yCoord)
         {
             shouty.SetLocation("Sean", new Coordinate(xCoord, yCoord));
