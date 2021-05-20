@@ -1,7 +1,5 @@
-using System.Linq;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-using TechTalk.SpecFlow.Assist;
 
 namespace Shouty.Specs
 {
@@ -10,28 +8,6 @@ namespace Shouty.Specs
     {
         private const string ARBITRARY_MESSAGE = "Hello, world";
         private readonly ShoutyNetwork shouty = new ShoutyNetwork();
-
-        [Given(@"{word} is at {int}, {int}")]
-        public void GivenPersonIsAt(string name, int xCoord, int yCoord)
-        {
-            shouty.SetLocation(name, new Coordinate(xCoord, yCoord));
-        }
-
-        [StepArgumentTransformation]
-        public PersonLocation[] ConvertPersonLocations(Table personLocationsTable)
-        {
-            return personLocationsTable.CreateSet<PersonLocation>().ToArray();
-        }
-
-        [Given("people are located at")]
-        public void GivenPeopleAreLocatedAt(PersonLocation[] personLocations)
-        {
-            foreach (var personLocation in personLocations)
-            {
-                shouty.SetLocation(personLocation.Name, 
-                    new Coordinate(personLocation.X, personLocation.X));
-            }
-        }
 
         [When(@"{word} shouts")]
         public void WhenPersonShouts(string name)
