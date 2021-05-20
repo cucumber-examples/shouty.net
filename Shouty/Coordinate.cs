@@ -15,7 +15,10 @@ namespace Shouty
 
         public int DistanceFrom(Coordinate other)
         {
-            return Math.Abs(xCoord - other.xCoord);
+            return (int)Math.Sqrt(
+                Math.Pow(xCoord - other.xCoord, 2)
+                + Math.Pow(yCoord - other.yCoord, 2)
+            );
         }
     }
 }
