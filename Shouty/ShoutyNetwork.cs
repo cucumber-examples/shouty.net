@@ -31,6 +31,8 @@ namespace Shouty
             foreach (var shout in shoutsByPerson)
             {
                 var shouter = shout.Key;
+                if (shouter.Equals(listenerName)) 
+                    continue;
                 var personsShouts = shout.Value;
 
                 int distance = locationsByPerson[shouter]
