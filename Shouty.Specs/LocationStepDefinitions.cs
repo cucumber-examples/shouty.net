@@ -8,11 +8,11 @@ namespace Shouty.Specs
     [Binding]
     public class LocationStepDefinitions
     {
-        private readonly ShoutyNetwork shouty;
+        private readonly ShoutyContext shoutyContext;
 
-        public LocationStepDefinitions(ShoutyNetwork shouty)
+        public LocationStepDefinitions(ShoutyContext shoutyContext)
         {
-            this.shouty = shouty;
+            this.shoutyContext = shoutyContext;
         }
 
         [StepArgumentTransformation]
@@ -24,7 +24,7 @@ namespace Shouty.Specs
         [Given(@"{word} is at {int}, {int}")]
         public void GivenPersonIsAt(string name, int xCoord, int yCoord)
         {
-            shouty.SetLocation(name, new Coordinate(xCoord, yCoord));
+            shoutyContext.Shouty.SetLocation(name, new Coordinate(xCoord, yCoord));
         }
 
         [Given("people are located at")]
@@ -32,7 +32,7 @@ namespace Shouty.Specs
         {
             foreach (var personLocation in personLocations)
             {
-                shouty.SetLocation(personLocation.Name,
+                shoutyContext.Shouty.SetLocation(personLocation.Name,
                     new Coordinate(personLocation.X, personLocation.X));
             }
         }
