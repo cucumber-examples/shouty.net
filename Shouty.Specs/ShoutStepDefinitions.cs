@@ -1,3 +1,4 @@
+using System.Linq;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
 
@@ -15,16 +16,26 @@ namespace Shouty.Specs
             shouty.SetLocation(name, new Coordinate(xCoord, yCoord));
         }
 
-        [Given("people are located at")]
-        public void GivenPeopleAreLocatedAt(Table personLocations)
+        [StepArgumentTransformation]
+        public PersonLocation[] ConvertPersonLocations(Table personLocationsTable)
         {
-            foreach (var row in personLocations.Rows)
+            return personLocationsTable.Rows
+                .Select(row => new PersonLocation
+                {
+                    Name = row["name"],
+                    X = int.Parse(row["x"]),
+                    Y = int.Parse(row["y"])
+                })
+                .ToArray();
+        }
+
+        [Given("people are located at")]
+        public void GivenPeopleAreLocatedAt(PersonLocation[] personLocations)
+        {
+            foreach (var personLocation in personLocations)
             {
-                shouty.SetLocation(
-                    row["name"],
-                    new Coordinate(
-                        int.Parse(row["x"]),
-                        int.Parse(row["y"])));
+                shouty.SetLocation(personLocation.Name, 
+                    new Coordinate(personLocation.X, personLocation.X));
             }
         }
 
