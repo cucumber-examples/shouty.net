@@ -21,6 +21,18 @@ namespace Shouty.Specs
             shouty.Shout("Sean", ARBITRARY_MESSAGE);
         }
 
+        [When("Oscar shouts")]
+        public void WhenOscarShouts()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then("Lucy should not hear Oscar")]
+        public void ThenLucyShouldNotHearOscar()
+        {
+            throw new PendingStepException();
+        }
+
         [Then(@"Lucy should hear Sean")]
         public void ThenLucyShouldHearSean()
         {
