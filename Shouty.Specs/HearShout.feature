@@ -14,6 +14,7 @@ Feature: Hear Shout
       | 0, 900         | Sean            |
       | 800, 800       | nothing         |
 
+  @SpecialTest
   Scenario: Multiple shouters
     Given people are located at
       | name  | x    | y   |

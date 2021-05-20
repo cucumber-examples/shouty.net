@@ -6,6 +6,12 @@ namespace Shouty.Specs
     [Binding]
     public class ShoutyHooks
     {
+        [BeforeScenario("@SpecialTest", Order = 0)]
+        public void PrintSpecialMessage()
+        {
+            Console.WriteLine("this is special");
+        }
+
         [BeforeScenario(Order = 1)]
         public void PrintBeforeMessage()
         {
