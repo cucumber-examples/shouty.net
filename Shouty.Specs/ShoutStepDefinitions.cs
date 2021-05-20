@@ -1,6 +1,7 @@
 using System.Linq;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
+using TechTalk.SpecFlow.Assist;
 
 namespace Shouty.Specs
 {
@@ -19,14 +20,7 @@ namespace Shouty.Specs
         [StepArgumentTransformation]
         public PersonLocation[] ConvertPersonLocations(Table personLocationsTable)
         {
-            return personLocationsTable.Rows
-                .Select(row => new PersonLocation
-                {
-                    Name = row["name"],
-                    X = int.Parse(row["x"]),
-                    Y = int.Parse(row["y"])
-                })
-                .ToArray();
+            return personLocationsTable.CreateSet<PersonLocation>().ToArray();
         }
 
         [Given("people are located at")]
