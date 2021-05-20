@@ -15,16 +15,10 @@ namespace Shouty.Specs
             shouty.SetLocation(name, new Coordinate(xCoord, yCoord));
         }
 
-        [When(@"Sean shouts")]
-        public void WhenSeanShouts()
+        [When(@"{word} shouts")]
+        public void WhenPersonShouts(string name)
         {
-            shouty.Shout("Sean", ARBITRARY_MESSAGE);
-        }
-
-        [When("Oscar shouts")]
-        public void WhenOscarShouts()
-        {
-            shouty.Shout("Oscar", ARBITRARY_MESSAGE);
+            shouty.Shout(name, ARBITRARY_MESSAGE);
         }
 
         [Then("Lucy should not hear Oscar")]
