@@ -56,5 +56,13 @@ namespace Shouty.Specs
         {
             Assert.AreEqual(0, shouty.GetShoutsHeardBy("Lucy").Count);
         }
+
+        [Then("Lucy should hear {int} shouts from Sean")]
+        public void ThenLucyShouldHearShoutsFromSean(int expectedNumberOfShouts)
+        {
+            var shoutsHeard = shouty.GetShoutsHeardBy("Lucy");
+            var shoutsByShouter = shoutsHeard["Sean"];
+            Assert.AreEqual(expectedNumberOfShouts, shoutsByShouter.Count);
+        }
     }
 }
